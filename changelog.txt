@@ -1,3 +1,6 @@
+[02/07/2021 13:40]
+- Added "azapru.github.io/tests" link to main page (not working right now / error 404)
+
 [02/07/2021 13:13]
 - Changed vwdsY1.gif file
 - Added changelog.txt file
