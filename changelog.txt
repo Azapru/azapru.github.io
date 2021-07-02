@@ -1,3 +1,6 @@
+[02.07.2021 21:51]
+- Another bug fix lmao
+
 [02.07.2021 21:22]
 - Fixed stupid date mistake in changelog.txt (this file)
 comment: lol im updating this site like every 5 minutes.
