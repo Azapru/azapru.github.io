@@ -1,3 +1,6 @@
+[02/07/2021 21:11]
+- Changed "h/h.html" to "h/index.html"
+
 [02/07/2021 15:52]
 - Website have now colored background
 
