@@ -1,0 +1,4 @@
+[02/07/2021 13:13]
+- Changed vwdsY1.gif file
+- Added changelog.txt file
+- Updated main redirect site (image, more links)
