@@ -1,29 +1,33 @@
-[02/07/2021 21:15]
+[02.07.2021 21:22]
+- Fixed stupid date mistake in changelog.txt (this file)
+comment: lol im updating this site like every 5 minutes.
+
+[02.07.2021 21:15]
 - Added link to this file on main site
 
-[02/07/2021 21:11]
+[02.07.2021 21:11]
 - Changed "h/h.html" to "h/index.html"
 
-[02/07/2021 15:52]
+[02.07.2021 15:52]
 - Website have now colored background
 
-[02/07/2021 15:48]
+[02.07.2021 15:48]
 - Fixed File Browser
 
-[02/07/2021 15:44]
+[02.07.2021 15:44]
 - Added "tests" page
 
-[02/07/2021 15:01]
+[02.07.2021 15:01]
 - Added "Source Code" link to main site
 
-[02/07/2021 14:57]
+[02.07.2021 14:57]
 - Added "Work In Progress" to main site
 - Changed main site look
 
-[02/07/2021 13:40]
+[02.07.2021 13:40]
 - Added "azapru.github.io/tests" link to main page (not working right now / error 404)
 
-[02/07/2021 13:13]
+[02.07.2021 13:13]
 - Changed vwdsY1.gif file
 - Added changelog.txt file
 - Updated main redirect site (image, more links)
