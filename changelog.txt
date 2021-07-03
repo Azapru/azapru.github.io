@@ -1,3 +1,9 @@
+[03.07.2021 12:20]
+- Updated File Browser to version 1.1
+- Added AzaGames Arcade
+- Added FNFTest to AzaGames Arcade
+- Changed main site look
+
 [02.07.2021 22:13]
 - Added new image to File Browser
 comment: i should go sleep
