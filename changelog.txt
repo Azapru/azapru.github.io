@@ -1,3 +1,6 @@
+[03.07.2021 14:28] 1.2.4
+- Added HARD PLATFORMER WebBuild Test to AzaGames Arcade
+
 [03.07.2021 14:03] 1.2.3
 - File update
 
