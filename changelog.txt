@@ -1,55 +1,58 @@
-[03.07.2021 12:33]
+[03.07.2021 12:33] 1.2.1
+- Added version tag to changelog.txt and to main site at the bottom
+
+[03.07.2021 12:33] 1.2.0
 - Moved AzaGames arcade to test websites
 - Main site no more redirects you
 - Added News to main page
 
-[03.07.2021 12:22]
+[03.07.2021 12:22] 1.1.1
 - Fixed Changelog lol
 
-[03.07.2021 12:20]
+[03.07.2021 12:20] 1.1.0
 - Updated File Browser to version 1.1
 - Added AzaGames Arcade
 - Added FNFTest to AzaGames Arcade
 - Changed main site look
 - Updated favicon.ico
 
-[02.07.2021 22:13]
+[02.07.2021 22:13] 1.0.12
 - Added new image to File Browser
 comment: i should go sleep
 
-[02.07.2021 21:51]
+[02.07.2021 21:51] 1.0.11
 - Another bug fix lmao
 
-[02.07.2021 21:22]
+[02.07.2021 21:22] 1.0.10
 - Fixed stupid date mistake in changelog.txt (this file)
 comment: lol im updating this site like every 5 minutes.
 
-[02.07.2021 21:15]
+[02.07.2021 21:15] 1.0.9
 - Added link to this file on main site
 
-[02.07.2021 21:11]
+[02.07.2021 21:11] 1.0.8
 - Changed "h/h.html" to "h/index.html"
 
-[02.07.2021 15:52]
+[02.07.2021 15:52] 1.0.7
 - Website have now colored background
 
-[02.07.2021 15:48]
+[02.07.2021 15:48] 1.0.6
 - Fixed File Browser
 
-[02.07.2021 15:44]
+[02.07.2021 15:44] 1.0.5
 - Added "tests" page
 
-[02.07.2021 15:01]
+[02.07.2021 15:01] 1.0.4
 - Added "Source Code" link to main site
 
-[02.07.2021 14:57]
+[02.07.2021 14:57] 1.0.3
 - Added "Work In Progress" to main site
 - Changed main site look
 
-[02.07.2021 13:40]
+[02.07.2021 13:40] 1.0.2
 - Added "azapru.github.io/tests" link to main page (not working right now / error 404)
 
-[02.07.2021 13:13]
+[02.07.2021 13:13] 1.0.1
 - Changed vwdsY1.gif file
 - Added changelog.txt file
 - Updated main redirect site (image, more links)
