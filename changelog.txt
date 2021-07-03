@@ -1,3 +1,6 @@
+[03.07.2021 12:33] 1.2.2
+- File update
+
 [03.07.2021 12:33] 1.2.1
 - Added version tag to changelog.txt and to main site at the bottom
 
