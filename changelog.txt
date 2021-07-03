@@ -1,3 +1,8 @@
+[03.07.2021 12:33]
+- Moved AzaGames arcade to test websites
+- Main site no more redirects you
+- Added News to main page
+
 [03.07.2021 12:22]
 - Fixed Changelog lol
 
