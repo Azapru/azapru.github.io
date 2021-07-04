@@ -1,7 +1,11 @@
-[04.07.2021 14:28] 1.3.1
+[04.07.2021 22:25] 1.3.2
+- Another tweaks
+- Bug fixes
+
+[04.07.2021 22:00] 1.3.1
 - Random tweaks
 
-[04.07.2021 14:28] 1.3.0
+[04.07.2021 22:00] 1.3.0
 - File update
 - Brand new file browser (thanks to SMLkaiellis08)
 - Some GitHub updates
