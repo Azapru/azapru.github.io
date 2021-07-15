@@ -1,3 +1,10 @@
+[15.07.2021 12:40] Experimental 1.4.0
+- index.html rewrite
+- old File Browser will not update anymore
+- File Browser (v2.0+) will be temporarily not updated
+- tweaks
+
+
 [04.07.2021 22:31] 1.3.4
 - bug fix aaaaaaaaaaaaaaaaaaa
 
