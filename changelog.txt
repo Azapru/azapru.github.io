@@ -1,3 +1,7 @@
+[17.07.2021 21:15] Experimental 1.4.3
+* Fixed file browser showing "redirectslist.html.html" instead of "redirectslist.html"
+* Fixed not being able to open redirectslist.html from file browser
+
 [17.07.2021 17:07] Experimental 1.4.2
 + Added more info to Redirects List
 
