@@ -1,3 +1,6 @@
+[17.07.2021 17:07] Experimental 1.4.2
++ Added more info to Redirects List
+
 [17.07.2021 17:02] Experimental 1.4.2
 + Added Redirects List
 * Tweaks (YES AGAIN)
