@@ -1,3 +1,7 @@
+[18.07.2021 17:56] BETA 1.4.5
++ Added "Newest Video" section
+* Tweaks
+
 [18.07.2021 13:12] Experimental 1.4.4
 * Tweaks
 
