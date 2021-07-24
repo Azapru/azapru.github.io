@@ -1,3 +1,6 @@
+[24.07.2021 22:18] BETA 1.5.0
+- Removed unused "Test Websites" page
+
 [22.07.2021 18:07] BETA 1.5.0
 * Link fix
 
