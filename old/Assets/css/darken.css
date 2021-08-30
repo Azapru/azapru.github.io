@@ -1,0 +1,14 @@
+:root {
+    --background-color: #171d22;
+    --background-2: #384652;
+    --color: #DCE2F9;
+    --primary: #7ae47e;
+    --secondary: #d68039;
+    --text-secondary: rgb(145, 145, 145);
+    --button-primary: #ad0000;
+    --primary-red: #ad0000;
+    --secondary-orange: #e97313;
+    --primary-green: #56e05a;
+    --discord-button: #3c4b5a;
+    --curseforge-button: #cf6813;
+}
