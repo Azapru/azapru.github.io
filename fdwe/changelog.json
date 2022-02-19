@@ -1,6 +1,7 @@
-test line 1
-test line 2
+Update 1.1.0 (PC Only)
 
-breal
-special characters \ / } { ; ' < > "
-V E R Y   L O N G   T E X T   V E R Y   L O N G   T E X T   V E R Y   L O N G   T E X T   V E R Y   L O N G   T E X T   
+- Added platform indicator
+- Added two more bonus days: "Chaos" and "Spong"
+- Tweaked Game Over screen
+- Fixed red static texture
+- In-game changelog now gets info from our servers
