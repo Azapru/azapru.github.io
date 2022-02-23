@@ -8,3 +8,7 @@ Update 1.2.0 (PC and Android)
 Android port notes:
 - If game crashes try reseting data or reinstalling
 - Port was tested on LDPlayer Emulator and Android 10 device
+
+Update 1.2.0-fix (Android Only)
+
+- You can now play offline
