@@ -1,12 +1,13 @@
 <html>
     <head>
-        <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+        <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript">            var city = geoip_city();
+            var country = geoip_country_name();</script>
         <script>
-            var city = geoip_city();
-            var country = geoip_country_name();
+
         </script>
     </head>
     <body>
+        
         <script>document.write(country)</script>.
     </body>
 </html>
