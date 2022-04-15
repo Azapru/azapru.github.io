@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<style>
+			body {
+			  background-image: url('bg.png');
+			  background-repeat: no-repeat;
+			  background-attachment: fixed;
+			  background-size: cover;
+			}
+			
+			@font-face {
+			  font-family: myFirstFont;
+			  src: url(BebasNeue-Regular.ttf);
+			}
+
+			h1 {
+			  font-family: myFirstFont;
+			  color: white
+			}
+			
+			h1 {
+				font-size: 60px
+			}
+			
+			p {
+				font-size: 20px;
+				color: white;
+				font-family: myFirstFont
+			}
+			
+			h2 {
+				font-size: 40px;
+				color: white;
+				font-family: myFirstFont
+			}
+			
+			a {
+				color: white
+			}
+			
+			h3 {
+				color: white
+			}
+		</style>
+	</head>
+	<body>
+		<center>
+			<img src="title.png">
+			<h1>FNaS Maniac Mania Modder</h1>
+			<p>The #1 save editor for FNaS Maniac Mania</p>
+			<br>
+			<img src="he.png">
+			<br><br>
+			<a href="https://example.com">Download (v1.0) (Classic Only)</a>
+			<br><br>
+			<h1>Features:</h1>
+			<img src="menu.png">
+			<h2>- Ability to unlock:</h2>
+			<p>* All achievements</p>
+			<p>* All jumpscares</p>
+			<p>* Survival and Shop</p>
+			<p>* Music menu</p>
+			<h2>- Ability to edit:</h2>
+			<p>* Rings count</p>
+			<p>* Survival record time</p>
+			<p>* Current night</p>
+			<h2>- Currently supports only FNaS MM Classic</h2>
+			<h2>- Easy to use GUI</h2>
+			<h2>- Log output</h2>
+			<h2>- Erase save file in one click</h2>
+			<h2>- </h2>
+			<h3>FNaS Maniac Mania Modder is NOT affiliated with SmilerFurcifer or Team Cyantix</h3>
+			<h3>Software and website by Azapru</h3>
+			<h3>2022</h3>
+		</center>
+	</body>
+</html>
