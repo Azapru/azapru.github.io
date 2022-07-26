@@ -1,53 +1,69 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Azapru's Website</title>
-		<style>
-			.iframe-container {
-			text-align:center;
-			width:100%;
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Azapru</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+		<link rel="stylesheet" href="assets/index.css">
+		<script>
+			function go(url) {
+				return window.open(url, '_blank');
 			}
-			h1 {text-align: center; font-family:verdana;}
-			h2 {text-align: center; font-family:verdana;}
-			h3 {text-align: center; font-family:verdana;}
-			p {text-align: center; font-family:verdana;}
-			div {text-align: center; font-family:verdana;}
-			a {text-align: center; font-family:verdana;}
-            a:link, a:visited {
-             background-color: #ff56f1;
-             color: white;
-             padding: 16px 50px;
-             text-align: center;
-             text-decoration: none;
-             display: inline-block;
-}
-
-a:hover, a:active {
-  background-color: #000000;
-}
-		</style>
-        <link rel='icon' type='image/x-icon' href='favicon.ico' />
-    </head>
-    <body style="background-color:pink;">
-        <a href="https://azapru.carrd.co" target="_blank">My Social Medias</a>
-		<a href="azurecat/" target="_blank">Games</a>
-		<a href="furry/" target="_blank">Is Azapru Furry?</a>
-		<a href="refsheets/" target="_blank">Ref Sheets / Art Gallery</a>
-		<a href="files/" target="_blank">Download Centre</a>
-		<a href="fnasmmmodder/" target="_blank">FNaS MM Modder</a>
-        <br>
-        <h2>Welcome to my website!</h2><br>
-        <h1>The GUI part of website will be taken down soon and will be only</h1>
-        <h1>used to redirects, file hosting, etc.</h1><br>
-        <h2>I'm currently working on "About Me" page</h2>
-        <h2>It will be hosted on carrd website, right now there's only social medias.</h2>
-        <h2>Click "Social Medias" to go there.</h2><br>
-		<h3>Featured Video:</h3>
-		<div class="iframe-container">
-		<iframe width="640" height="360" src="https://www.youtube.com/embed/Qcns48M6bf0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+		</script>
+		<meta content="Azapru (she/her)" property="og:title" />
+		<meta content="dumb game dev that plays rhythm games" property="og:description" />
+		<meta content="https://azapru.github.io" property="og:url" />
+		<meta content="assets/pfp.jpg" property="og:image" />
+		<meta content="#77ffd0" data-react-helmet="true" name="theme-color" />
+	</head>
+	<body>
+		<h1>azapru.github.io</h1>
+		<div id="profile">
+		<img class="pfp" src="assets/pfp.jpg" />
+		<div>
+		<span><b>Azapru</b> <small>she/her</small></span> <br />
+		<span>dumb game dev that plays cookie run and rhythm games</span>
 		</div>
-        <p align="center"><center><img src="wip.png" alt="wip" class="center"></center><br>
-        <p>Made by Azapru</p>
-        <p>2022</p>
-    </body>
+		</div>
+		<button class="big-boy-button" onclick="go('https://discord.com/users/717680843178639420')">
+		DM on Discord (🎀  𝒜𝓏𝒶𝓅𝓇𝓊  🎀#8358)
+		</button>
+		<button class="big-boy-button" onclick="go('https://twitter.com/Azapruu')">
+		or on Twitter (@Azapruu)
+		</button>
+		<h2>Wiki<h2>
+		<h4>wiki about me and stuff i made</h4>
+		<button class="big-boy-button" onclick="go('https://azapru.github.io/wiki')">
+		Wiki
+		</button>
+		<h2>Social medias</h2>
+		<button class="big-boy-button" onclick="go('https://twitter.com/Azapruu')">
+		Twitter
+		</button>
+		<button class="big-boy-button" onclick="go('https://github.com/Azapru')">
+		GitHub
+		</button>
+		<button class="big-boy-button" onclick="go('https://azapru.itch.io')">
+		Itch.io (my games)
+		</button>
+		<button class="big-boy-button" onclick="go('https://gamejolt.com/@Azapru')">
+		GameJolt (my other games)
+		</button>
+		<button class="big-boy-button" onclick="go('https://www.youtube.com/channel/UCalgU6vkUegFq8aEyJQz7Ag')">
+		Youtube
+		</button>
+		<h2>Game profiles</h2>
+		<button class="big-boy-button" onclick="go('https://www.roblox.com/users/1832724824/profile')">
+		Roblox
+		</button>
+		<button class="big-boy-button" onclick="go('https://osu.ppy.sh/users/22693018')">
+		osu!
+		</button>
+		<button class="big-boy-button" onclick="go('https://namemc.com/profile/Azapru.1')">
+		Minecraft
+		</button>
+		</button>
+	</body>
 </html>
