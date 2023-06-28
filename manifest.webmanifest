@@ -1,0 +1,12 @@
+{
+  "name": "Azapru Website",
+  "short_name": "Azapru Website",
+  "id": "com.example.gamename",
+  "description": "",
+  "orientation": "any",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": []
+}
