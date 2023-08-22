@@ -1,0 +1,77 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("Tighnari_Background.jpg"); /* Adjust the path as needed */
+    background-size: cover; /* This will make the image cover the entire background */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    background-position: center center;
+}
+
+p {
+    color: rgb(226, 226, 226);
+}
+
+h2 {
+    color: white;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("Quicksand-Regular.ttf") format("truetype"); /* Adjust the path as needed */
+}
+  
+  /* Center the content vertically and horizontally */
+.container {    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This makes the container take up the full viewport height */
+    font-family: "Quicksand", sans-serif; /* Fallback to a sans-serif font if Quicksand isn't available */
+    font-size: 28px;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to control the transparency */
+    padding: 20px; /* Add some padding to create space between the content and the background */
+    border-radius: 25px;
+
+    /* Adjust the width and center the container */
+    width: 75%; /* Adjust the percentage to control the width of the rectangle */
+    margin: 0 auto; /* Center the container horizontally */
+}
+  
+  /* Add some spacing */
+.sticker {
+    margin-bottom: 20px; /* Adjust as needed */
+    margin-top: 80px; /* Adjust as needed */
+}
+
+.artwork {
+    margin: 20px;
+    max-width: 300px;
+}
+
+.image-container {
+    float: left;
+    margin-right: 10px; /* Optional spacing between images */
+}
+
+.buttons {
+    text-align: center; /* Center the buttons horizontally */
+    margin-top: 20px; /* Add some space between the content and the buttons */
+}
+  
+  /* Style for the buttons */
+button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
