@@ -5,10 +5,10 @@ body, h1, h2, h3, p, ul, li {
 }
 
 body {
-    background-image: url("Tighnari_Background.jpg"); /* Adjust the path as needed */
-    background-size: cover; /* This will make the image cover the entire background */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    background-image: url("Tighnari_Background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-position: center center;
 }
 
@@ -22,7 +22,7 @@ h2 {
 
 @font-face {
     font-family: "Quicksand";
-    src: url("Quicksand-Regular.ttf") format("truetype"); /* Adjust the path as needed */
+    src: url("Quicksand-Regular.ttf") format("truetype");
 }
   
   /* Center the content vertically and horizontally */
@@ -34,19 +34,18 @@ h2 {
     height: 100vh; /* This makes the container take up the full viewport height */
     font-family: "Quicksand", sans-serif; /* Fallback to a sans-serif font if Quicksand isn't available */
     font-size: 28px;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to control the transparency */
-    padding: 20px; /* Add some padding to create space between the content and the background */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
     border-radius: 25px;
 
     /* Adjust the width and center the container */
-    width: 75%; /* Adjust the percentage to control the width of the rectangle */
+    width: 75%;
     margin: 0 auto; /* Center the container horizontally */
 }
   
-  /* Add some spacing */
 .sticker {
-    margin-bottom: 20px; /* Adjust as needed */
-    margin-top: 80px; /* Adjust as needed */
+    margin-bottom: 20px;
+    margin-top: 80px;
 }
 
 .artwork {
@@ -56,12 +55,12 @@ h2 {
 
 .image-container {
     float: left;
-    margin-right: 10px; /* Optional spacing between images */
+    margin-right: 10px;
 }
 
 .buttons {
-    text-align: center; /* Center the buttons horizontally */
-    margin-top: 20px; /* Add some space between the content and the buttons */
+    text-align: center;
+    margin-top: 20px;
 }
   
   /* Style for the buttons */
@@ -74,4 +73,8 @@ button {
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
+}
+
+a {
+    
 }
