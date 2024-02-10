@@ -1,0 +1,92 @@
+* {
+    font-family: monospace;
+    padding: 0;
+    margin: 0;
+    min-width: none;
+    color: #e8efff;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+body {
+    background-color: #2D333F;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.col {
+    flex: 1;
+}
+
+.col:first-child {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col:last-child {
+    flex: 3;
+}
+
+.cover-image {
+    width: 90%;
+    height: 95vh;
+    background-image: url("scara.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 16px;
+    box-shadow: 16px 16px 32px #252a34;
+}
+
+.space {
+    margin-top: 8%;
+    margin-left: 10%;
+}
+
+.title {
+    font-size: 36px;
+    margin-left: 30px;
+    color: #c1d6ff;
+    margin-bottom: 32px;
+    font-weight: bold;
+}
+
+.date {
+    margin-bottom: 64px;
+}
+
+.category-text {
+    font-size: 28px;
+    color: #6679a8;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.link {
+    margin-left: 14px;
+    color: #93a7d8;
+    margin-bottom: 2px;
+    transition: ease 0.25s;
+}
+
+.link:hover {
+    color: #d5def4;
+    cursor: pointer;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 500px;
+}
+
+.category {
+    margin-bottom: 32px;
+}
