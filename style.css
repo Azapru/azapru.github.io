@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    color: rgb(226, 228, 242);
+    font-family: "Playfair Display", serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #1d1e28;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.frame {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    width: 1000px;
+    margin: 64px;
+    background-color: #303650;
+    text-align: center;
+    border-radius: 32px;
+}
+
+.display {
+    font-size: 50px;
+    font-weight: 200;
+}
+
+.icon {
+    border-radius: 32px;
+    height: 200px;
+    margin-bottom: 32px;
+}
+
+hr {
+    color: #676a87;
+    margin: 64px
+    
+}
+
+p {
+    font-size: 30px;
+    color: #d7d9f0;
+}
+
+.smaller > p {
+    font-size: 22px !important;
+    color: #b3b5d1;
+}
+
+.container {
+    display: flex;
+}
+
+.col {
+    flex: 5;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.col-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col:first-child {
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+.col:last-child {
+    margin-left: 20px;
+    margin-right: 40px;
+}
+
+.title {
+    margin-bottom: 24px;
+}
+
+.cover {
+    width: 100%;
+    border-radius: 16px;
+}
