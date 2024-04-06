@@ -86,3 +86,7 @@ p {
     width: 100%;
     border-radius: 16px;
 }
+
+a {
+    color: #b3b5d1; !important;
+}
