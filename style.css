@@ -102,4 +102,19 @@ a {
         margin-top: 32px;
         margin-bottom: 32px;
     }
+
+    .frame {
+        margin: 16px;
+    }
+
+    .display {
+        font-size: 40px;
+    }
+    p {
+        font-size: 22px;
+    }
+    
+    .smaller > p {
+        font-size: 18px !important;
+    }
 }
