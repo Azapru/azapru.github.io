@@ -55,6 +55,7 @@ p {
 
 .container {
     display: flex;
+    flex-direction: row;
 }
 
 .col {
@@ -89,5 +90,16 @@ p {
 }
 
 a {
-    color: #b3b5d1; !important;
+    color: #b3b5d1 !important;
+}
+
+@media (max-width: 700px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .cover {
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
 }
