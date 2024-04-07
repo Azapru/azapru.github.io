@@ -117,4 +117,14 @@ a {
     .smaller > p {
         font-size: 18px !important;
     }
+
+    .col:first-child {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .col:last-child {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
