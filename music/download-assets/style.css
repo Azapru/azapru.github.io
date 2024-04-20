@@ -20,6 +20,10 @@ body {
     background-image: url("../terminal-decay/cover-bg.png");
 }
 
+.nonexistent-light {
+    background-image: url("../nonexistent-light/cover-bg.jpg");
+}
+
 .container {
     display: flex;
     min-height: 100vh;
