@@ -1,0 +1,152 @@
+@font-face {
+    font-family: "Pixellari";
+    src: url("Pixellari.ttf");
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Pixellari", sans-serif;
+    font-weight: 100;
+    color: #ffeded;
+    text-decoration: none;
+}
+
+body {
+    background-color: #120909;
+    text-align: center;
+}
+
+.logo {
+    width: 900px;
+    max-width: 90vw;
+    margin-top: 128px;
+    margin-bottom: 128px;
+}
+
+header {
+    width: 100vw;
+    height: 64px;
+    background-color: #301c1c;
+    display: flex;
+    justify-content: center;
+}
+
+.header-btn {
+    height: 64px;
+    width: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-out 0.2s;
+    font-size: 24px;
+    color: #ffeded;
+    background-color: #301c1c;
+    user-select: none;
+}
+
+.header-btn:hover {
+    font-size: 30px;
+    color: #301c1c;
+    background-color: #ffeded;
+    cursor: pointer;
+}
+
+.frame {
+    display: flex;
+    margin-top: 96px;
+    margin-bottom: 96px;
+}
+
+.col {
+    padding: 32px;
+    flex: 2;
+    max-width: 50vw;
+    overflow-x: hidden;
+}
+
+.col > img {
+    max-width: 100%;
+}
+
+.hr-frame {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+hr {
+    width: 75%;
+    color: #624646a2;
+}
+
+.blur {
+    filter: blur(0px)
+}
+
+.msgbox {
+    background-color: #000000bb;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.msgframe {
+    width: 600px;
+    height: 300px;
+    background-color: #120909;
+    border: 2px solid #695a5a;
+    display: flex;
+    flex-direction: column;
+}
+
+.msgbox-btn {
+    background-color: #301c1c;
+    margin-top: auto;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #ffeded;
+    background-color: #301c1c;
+    user-select: none;
+    transition: ease-out 0.2s;
+}
+
+.msgbox-btn:hover {
+    font-size: 30px;
+    color: #301c1c;
+    background-color: #ffeded;
+    cursor: pointer;
+}
+
+.msgtext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.title {
+    font-size: 64px;
+    margin-bottom: 32px;
+    margin-top: 32px;
+}
+
+.left {
+    padding-left: 20%;
+    padding-right: 20%;
+    text-align: left;
+}

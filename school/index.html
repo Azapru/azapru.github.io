@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonium Prerierat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="blur" id="blur">
+        <header>
+            <a href="."><div class="header-btn">🏠 Home</div></a>
+            <div class="header-btn" onclick="showMsgBox('This game cannot be downloaded yet as it is still in development, check back later!', 600, 300)">📦 Download</div>
+            <div class="header-btn" onclick="showMsgBox('<img src=https://media1.tenor.com/m/y357BpUidNwAAAAC/jerma.gif>', 600, 600)">🗨️ Forums</div>
+            <a href="faq/"><div class="header-btn">❓ FAQ</div></a>
+            <a href="about/"><div class="header-btn">ℹ️ About Us</div></a>
+            <div class="header-btn" onclick="showMsgBox('Soon™️', 500, 200)">🕹️ Demo</div>
+        </header>
+    
+        <img src="logo.png" class="logo">
+        <h1>An action/adventure game in development by 000-Group !</h1>
+        
+        <br><br><br><br><br><br>
+        <div class="hr-frame"><hr></div>
+    
+        <div class="frame">
+            <div class="col">
+                <img src="assets/whatisthis.png">
+            </div>
+            <div class="col">
+                <h1 style="margin-right: 10%;">Testimonium Perierat is a retro-styled 2D action adventure game. Set in a sprawling, nocturnal cityscape, where you jump across, through, and atop buildings, all while facing off against relentless enemies with a variety of firearms.</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="msgbox" id="msgbox">
+        <div class="msgframe" id="msgframe">
+            <div class="msgtext" id="msgtext">
+                <h1></h1>
+            </div>
+            <div class="msgbox-btn" onclick="closeMsgBox()">OK</div>
+        </div>
+    </div>
+
+    <div class="hr-frame"><hr></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
