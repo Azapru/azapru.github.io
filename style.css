@@ -93,6 +93,13 @@ a {
     color: #b3b5d1 !important;
 }
 
+.music {
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    width: 460px;
+}
+
 @media (max-width: 700px) {
     .container {
         flex-direction: column;
@@ -127,13 +134,10 @@ a {
         margin-left: 20px;
         margin-right: 20px;
     }
-}
 
-.music {
-    position: fixed;
-    bottom: 0;
-    left: 0px;
-    width: 500px;
+    .music {
+        width: 300px;
+    }
 }
 
 .fav-song-text {
