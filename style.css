@@ -100,6 +100,10 @@ a {
     width: 460px;
 }
 
+.space {
+    height: 0px;
+}
+
 @media (max-width: 700px) {
     .container {
         flex-direction: column;
@@ -137,6 +141,10 @@ a {
 
     .music {
         width: 300px;
+    }
+
+    .space {
+        height: 152px;
     }
 }
 
