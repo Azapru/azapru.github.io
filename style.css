@@ -8,19 +8,25 @@
     cursor: url(https://ani.cursors-4u.net/nature/nat-11/nat1046.cur), auto !important;
 }
 
+a:hover {
+    cursor: pointer !important;
+}
+
 body {
     min-height: 100vh;
     background-color: #1d1e28;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .frame {
     padding-top: 64px;
     padding-bottom: 64px;
-    width: 1000px;
-    margin: 64px;
+    width: calc(100vw - 64px);
+    max-width: 1000px;
+    margin: 32px;
     background-color: #303650;
     text-align: center;
     border-radius: 32px;
@@ -151,4 +157,44 @@ a {
 .fav-song-text {
     font-size: 20px;
     padding-left: 8px;
+}
+
+.social {
+    width: 64px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.social:hover {
+    cursor: pointer !important;
+}
+
+.release {
+    padding: 8px;
+    background-color: #1a2b36;
+    width: 100%;
+    border-radius: 16px;
+    display: flex;
+}
+
+.release-img {
+    width: 128px;
+    border-radius: 16px;
+}
+
+.release-cover {
+    margin-right: 8px;
+}
+
+.release-info {
+    padding: 8px;
+}
+
+.link {
+    width: 32px;
+    margin-right: 8px;
+}
+
+.link:hover {
+    cursor: pointer !important;
 }
