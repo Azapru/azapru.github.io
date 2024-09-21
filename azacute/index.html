@@ -7,9 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="warning-bg" id="warning-bg"></div>
+    <div class="warning" id="warning">
+        <div class="msg-box">
+            <p>Warning: This link may contain triggering themes</p>
+            <div class="buttons">
+                <div class="button" onclick="continueToLink()">Continue</div>
+                <div class="button" onclick="cancelLink()">Cancel</div>
+            </div>
+        </div>
+    </div>
+
     <div class="main">
         <img src="banner.png" alt="banner" class="banner">
-        <div class="center">Hardcore/Industrial/Doomcore/Noise/Experimental</div>
+        <div class="center">Underground Hardcore Label</div>
+        <div class="center"><a href="https://x.com/azacute_records" target="_blank">Twitter</a></div>
+        <div class="center"><a href="https://forms.gle/Gg6NjunSHZF8gNwS9" target="_blank">Member Form</a></div>
         <p class="title">■Release</p>
 
         <div class="releases-page">
@@ -23,7 +36,106 @@
 
         </div>
 
+        <p class="title">■Members</p>
+
+        <div class="artist">
+            <div>
+                <img src="assets/Azapru.jpg" class="artistImg">
+            </div>
+            <div>
+                <p class="big">Azapru</p>
+                <p>Genres: Hardcore / Doomcore / Crossbreed</p><br>
+                Aza makes various genres, mainly focusing on creating dark and melodic songs. They started publishing music in 2024, later, inspired by Illegal Wave Records, Cokolwiecore, Morita Yuuhei and Noizenecio... they started azACUTE Records label. Aza is also the main designer of the label.
+                <div class="links">
+                    <a href="http://azapru.xyz" target="_blank">Web</a>
+                    <a href="https://x.com/Azapruu" target="_blank">Twitter</a>
+                    <a href="https://azapru.bandcamp.com/" target="_blank">Bandcamp</a>
+                    <a href="https://www.pixiv.net/en/users/98453637" target="_blank">Pixiv</a>
+                    <a href="https://www.discogs.com/artist/15001957-Azapru" target="_blank">Discogs</a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="artist">
+            <div>
+                <img src="assets/prycwrn.jpg" class="artistImg">
+            </div>
+            <div>
+                <p class="big">prycwrn</p>
+                <p>Genres: Breakcore / Hardcore / EDM / Orchestral</p><br>
+                prycwrn (spelled "prycern") is a Romanian artist and musician. Making music ever since kindergarten, they like to experiment and combine genres they like. Often times, their music sounds as if someone is beating you up with a bouquet of flowers, as prycwrn manages to combine and balance harsh sounds with emotional melodies. They also have a crippling mango monster addiction.
+                <div class="links">
+                    <a href="https://prycwrn.crd.co/" target="_blank">Web</a>
+                    <a href="https://x.com/prycwrn" target="_blank">Twitter</a>
+                    <a href="https://x.com/not_prycwrn" target="_blank">Twitter (art)</a>
+                    <a href="https://prycwrn.bandcamp.com/" target="_blank">Bandcamp</a>
+                    <a href="https://www.discogs.com/artist/11351759-prycwrn" target="_blank">Discogs</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="artist">
+            <div>
+                <img src="assets/madksh2.jpg" class="artistImg">
+            </div>
+            <div>
+                <p class="big">MADKSH2 / U.V.B</p>
+                <p>Genres: Gabber / Early Speedcore / Noisecore / Amigacore</p><br>
+                UK based MADKSH2 (mad-kay-es-haitch-too) first discovered Hardcore through the track "Foetus Of Hell" by Aftermath in 2018, ever since that day he fell in love with the simplistic but brutal sound of Early Hardcore. The name derives from the .MADK file format for PlayerPRO in combination with SH2, an acronym for the 2001 horror classic Silent Hill 2.
+                <div class="links">
+                    <a href="https://madksh2.bandcamp.com/" target="_blank">Bandcamp</a>
+                    <a href="https://www.youtube.com/@bigshituk6011" target="_blank">Youtube (personal label)</a>
+                    <a href="https://www.discogs.com/artist/13500403-Madksh2" target="_blank">Discogs</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="artist">
+            <div>
+                <img src="assets/yuno.jpg" class="artistImg">
+            </div>
+            <div>
+                <p class="big">Yuno Oonakata</p>
+                <p>Genres: Speedcore / Futurecore / Artcore / DnB</p>
+                <div class="links">
+                    <a href="https://x.com/realYumo" target="_blank">Twitter</a>
+                    <a href="https://yuno0onokata.bandcamp.com/music" target="_blank">Bandcamp</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="artist">
+            <div>
+                <img src="assets/izu.jpg" class="artistImg">
+            </div>
+            <div>
+                <p class="big">izu</p>
+                <p>Genres: Hardcore Techno / Electronica / EDM</p>
+                <div class="links">
+                    <a href="https://x.com/izu30209" target="_blank">Twitter</a>
+                    <a href="https://izu30209.bandcamp.com/" target="_blank">Bandcamp</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="artist">
+            <div>
+                <img src="assets/Nymphh.jpg" class="artistImg">
+            </div>
+            <div>
+                <p class="big">Nymphh</p>
+                <p>Genres: Noisecore / Harsh Noise</p>
+                <div class="links">
+                    <a onclick="openlink()">Twitter</a>
+                    <a href="https://nymphh.bandcamp.com/" target="_blank">Bandcamp</a>
+                </div>
+            </div>
+        </div>
+
         <div class="footer">2024 azACUTE Records</div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
