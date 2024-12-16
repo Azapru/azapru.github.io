@@ -2,11 +2,12 @@
     padding: 0;
     margin: 0;
     font-family: "MS PGothic", sans-serif;
+    color: #efefef;
 }
 
-a {
+a, a > b {
     text-decoration: none;
-    color: #af19b4;
+    color: rgb(213, 84, 217);
 }
 
 a:hover {
@@ -27,9 +28,9 @@ body {
     min-width: 960px;
     width: 960px;
     height: fit-content;
-    border: 1px black solid;
+    border: 1px #898989 solid;
     margin: 0 auto;
-    background-color: #FFF;
+    background-color: #181A1B;
     margin-bottom: 64px;
 }
 
@@ -51,6 +52,7 @@ body {
 }
 
 .footer {
+    margin-top: 16px;
     padding: 2px;
     color: #FFF;
     text-align: center;
@@ -88,7 +90,7 @@ body {
     width: 175px;
     height: 175px;
     margin-right: 16px;
-    border: #000000 1px solid;
+    border: #898989 1px solid;
 }
 
 .links {
@@ -114,8 +116,8 @@ body {
 }
 
 .msg-box {
-    background-color: white;
-    border: #000000 1px solid;
+    background-color: #181A1B;
+    border: #898989 1px solid;
     width: 400px;
     text-align: center;
     padding-top: 32px;
