@@ -141,3 +141,7 @@ body {
 .buttons {
     margin-top: 32px;
 }
+
+.upcoming-card {
+    width: 100%;
+}
