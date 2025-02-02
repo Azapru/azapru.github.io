@@ -175,6 +175,11 @@ iframe {
 
 .icon > p {
     background-color: #00000070;
+    text-align: center;
+}
+
+.external {
+    width: 16px;
 }
 
 #watermark {
