@@ -137,18 +137,19 @@ iframe {
 }
 
 .grid {
-    padding: 32px;
+    padding: 16px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 100px); /* Fixed column width */
-    grid-template-rows: repeat(auto-fill, 120px); /* Fixed row height */
+    grid-template-columns: repeat(auto-fill, 90px); /* Fixed column width */
+    grid-template-rows: repeat(auto-fill, 110px); /* Fixed row height */
     grid-auto-flow: column dense; /* Flow downwards first, then wrap into columns */
     gap: 10px; /* Spacing between items */
     max-height: 90vh; /* Constrain grid height */
 }
 
 .icon {
-    width: 100px;
-    height: 120px;
+    font-size: 14px;
+    width: 90px;
+    height: 110px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -168,8 +169,8 @@ iframe {
 }
 
 .icon > img {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     padding-bottom: 8px;
 }
 
