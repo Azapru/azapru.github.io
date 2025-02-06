@@ -4,6 +4,10 @@ let offsetX = 0;
 let offsetY = 0;
 let zIndexCounter = 1;
 
+let desktopDragPosX = 0
+let desktopDragPosY = 0
+let desktopDrag = false
+
 // Function for creating windows for apps
 function createWindow(app, title, x, y, width, height, allowResize, center) {
     const appWindow = document.createElement('div');
@@ -14,8 +18,18 @@ function createWindow(app, title, x, y, width, height, allowResize, center) {
         appWindow.style.left = `${window.innerWidth/2 - width/2}px`;
         appWindow.style.top = `${window.innerHeight/2 - height/2}px`;
     } else {
-        appWindow.style.left = `${x}px`;
-        appWindow.style.top = `${y}px`;
+        let posX = x/100 * window.innerWidth
+        let posY = y/100 * window.innerHeight
+
+        if (posX > (window.innerWidth / 2)) {
+            posX = posX - width
+        }
+        if (posY > (window.innerHeight / 2)) {
+            posY = posY - height
+        }
+
+        appWindow.style.left = `${posX}px`;
+        appWindow.style.top = `${posY}px`;
     }
     // Check if the user is on mobile to set proper window position
     if (window.matchMedia("(max-width: 768px)").matches) {
@@ -109,6 +123,19 @@ document.addEventListener('mousedown', (e) => {
         offsetX = e.clientX - currentResize.offsetWidth - currentResize.offsetLeft + 4;
         offsetY = e.clientY - currentResize.offsetHeight - currentResize.offsetTop + 4;
     }
+
+    if (e.target.classList.contains("grid")) {
+        desktopDragPosX = e.clientX
+        desktopDragPosY = e.clientY
+        desktopDrag = true
+
+        document.getElementById("drag").style.left = `${desktopDragPosX}px`
+        document.getElementById("drag").style.top = `${desktopDragPosY}px`
+        document.getElementById("drag").style.width = `${Math.abs(e.clientX - desktopDragPosX)}px`
+        document.getElementById("drag").style.height = `${Math.abs(e.clientY - desktopDragPosY)}px`
+        document.getElementById("drag").style.display = "block"
+        document.getElementById("drag").classList.remove("fadeOutAnim")
+    }
 });
 
 document.addEventListener('mousemove', (e) => {
@@ -139,6 +166,13 @@ document.addEventListener('mousemove', (e) => {
 
         document.body.style.userSelect = 'none';
     }
+
+    if (desktopDrag) {
+        document.getElementById("drag").style.left = `${(e.clientX - desktopDragPosX) < 0 ? e.clientX : desktopDragPosX}px`
+        document.getElementById("drag").style.top = `${(e.clientY- desktopDragPosY) < 0 ? e.clientY : desktopDragPosY}px`
+        document.getElementById("drag").style.width = `${Math.abs(e.clientX - desktopDragPosX)}px`
+        document.getElementById("drag").style.height = `${Math.abs(e.clientY - desktopDragPosY)}px`
+    }
 });
 
 document.addEventListener('mouseup', () => {
@@ -151,6 +185,16 @@ document.addEventListener('mouseup', () => {
         currentResize = null;
         document.body.style.userSelect = 'auto';
     }
+
+    if (desktopDrag) {
+        document.getElementById("drag").classList.add("fadeOutAnim")
+        desktopDrag = false;
+    }
 });
+
+document.getElementById("drag").addEventListener("animationend", () => {
+    document.getElementById("drag").classList.remove("fadeOutAnim")
+    document.getElementById("drag").style.display = "none"
+})
 
 createWindow('aboutme', 'About Me!', 0, 0, 820, 510, true, true) // Create the initial window

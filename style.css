@@ -144,6 +144,7 @@ iframe {
     grid-auto-flow: column dense; /* Flow downwards first, then wrap into columns */
     gap: 10px; /* Spacing between items */
     max-height: 90vh; /* Constrain grid height */
+    user-select: none;
 }
 
 .icon {
@@ -216,4 +217,31 @@ iframe {
 .link {
     color: #f29aff;
     cursor: url("assets/pointer.png") 6 1, pointer;
+}
+
+.drag {
+    background-color: #cb65db78;
+    border: #f29aff solid 2px;
+    width: 0px;
+    height: 0px;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 100%;
+    user-select: none;
+    pointer-events: none;
+}
+
+.fadeOutAnim {
+    animation: fade-out-anim 0.25s linear forwards !important;
+}
+
+@keyframes fade-out-anim {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
 }
