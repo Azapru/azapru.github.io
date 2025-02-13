@@ -145,3 +145,37 @@ body {
 .upcoming-card {
     width: 100%;
 }
+
+.mascot {
+    display: flex;
+}
+
+.mascot-img {
+    width: 100%;
+}
+
+.title-mascot {
+    margin-top: 64px;
+    margin-bottom: 32px;
+}
+
+.mascot-left {
+    width: 50%;
+}
+
+.mascot-right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 22px;
+}
+
+.mascot-name {
+    margin-bottom: 16px;
+    width: 75%;
+}
+
+.break {
+    height: 16px;
+}
