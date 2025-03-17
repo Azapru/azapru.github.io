@@ -24,13 +24,6 @@ a {
     cursor: url("assets/pointer.png") 6 1, pointer;
 }
 
-iframe {
-    border-style: none;
-    width: 100%;
-    margin-top: 32px;
-    height: 468px;
-}
-
 @keyframes pop-out {
     0% {
         transform: scale(0.75);
@@ -116,10 +109,11 @@ iframe {
 }
 
 .appArea {
+    margin: 0;
     width: 100%;
     height: calc(100% - 32px);
-    color: #fad6ff;
     overflow: scroll;
+    border: none;
 }
 
 .resize {

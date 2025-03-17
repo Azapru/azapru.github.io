@@ -1,0 +1,58 @@
+.aboutme-frame {
+    padding: 16px;
+    height: 100%;
+}
+
+.aboutme-title {
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.aboutme-p {
+    margin-bottom: 16px;
+    color: #efefef;
+}
+
+.aboutme-p-small {
+    color: #aeaeae;
+    font-size: 14px;
+}
+
+.aboutme-split {
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 32px);
+}
+
+@media (max-width: 768px) {
+    .aboutme-split {
+        flex-direction: column !important;
+    }
+
+    .aboutme-a {
+        padding-top: 16px !important;
+        padding-left: 0px !important;
+        width: 100% !important;
+        height: 50%;
+    }
+
+    .aboutme-b {
+        width: 100% !important;
+        height: 40vh !important;
+    }
+}
+
+.aboutme-a {
+    width: 50%;
+    padding-left: 16px;
+}
+
+.aboutme-b {
+    width: 50%;
+    height: calc(100vh - 32px);
+    border-radius: 16px;
+    background-image: url("moon-icon.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
