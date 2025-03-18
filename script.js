@@ -141,6 +141,7 @@ document.addEventListener('mousedown', (e) => {
         });
     }
 
+    // Dragging on desktop
     if (e.target.classList.contains("grid")) {
         desktopDragPosX = e.clientX
         desktopDragPosY = e.clientY
@@ -152,6 +153,11 @@ document.addEventListener('mousedown', (e) => {
         document.getElementById("drag").style.height = `${Math.abs(e.clientY - desktopDragPosY)}px`
         document.getElementById("drag").style.display = "block"
         document.getElementById("drag").classList.remove("fadeOutAnim")
+
+        // Making all app areas un-interactable so they don't break moving the windows
+        document.querySelectorAll(".appArea").forEach(element => {
+            element.style.pointerEvents = "none";
+        });
     }
 });
 

@@ -19,5 +19,5 @@ a {
 
 .link {
     color: #f29aff;
-    cursor: url("assets/pointer.png") 6 1, pointer;
+    cursor: url("../../assets/pointer.png") 6 1, pointer;
 }
