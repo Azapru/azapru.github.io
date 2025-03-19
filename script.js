@@ -1,3 +1,5 @@
+const urlParams = new URLSearchParams(window.location.search);
+
 let currentDrag = null;
 let currentResize = null;
 let offsetX = 0;
@@ -101,6 +103,21 @@ function createWindow(app) {
             }
 
             document.body.appendChild(appWindow); // Add the window to the body
+            
+            // Make sure it cant spawn outside the frame of the desktop
+            if (parseInt(appWindow.style.left) < 0) {
+                appWindow.style.left = "0px";
+            }
+            if (parseInt(appWindow.style.top) < 0) {
+                appWindow.style.top = "0px";
+            }
+            if (parseInt(appWindow.style.left) + parseInt(appWindow.style.width) > window.innerWidth - 6) {
+                appWindow.style.width = `${window.innerWidth - parseInt(appWindow.style.left) - 6}px`
+            }
+            if (parseInt(appWindow.style.top) + parseInt(appWindow.style.height) > window.innerHeight - 6) {
+                appWindow.style.height = `${window.innerHeight - parseInt(appWindow.style.top) - 6}px`
+            }
+            
         })
         .catch(error => console.error('Error:', error));
 }
@@ -171,17 +188,25 @@ document.addEventListener('mousemove', (e) => {
         if (e.clientY - offsetY < 0) {
             currentDrag.style.top = "0px";
         }
-        if (e.clientX - offsetX + currentDrag.offsetWidth > window.innerWidth) {
-            currentDrag.style.left = `${window.innerWidth - currentDrag.offsetWidth}px`;
+        if (e.clientX - offsetX + currentDrag.offsetWidth > window.innerWidth - 2) {
+            currentDrag.style.left = `${window.innerWidth - currentDrag.offsetWidth - 2}px`;
         }
-        if (e.clientY - offsetY + currentDrag.offsetHeight > window.innerHeight) {
-            currentDrag.style.top = `${window.innerHeight - currentDrag.offsetHeight}px`;
+        if (e.clientY - offsetY + currentDrag.offsetHeight > window.innerHeight - 2) {
+            currentDrag.style.top = `${window.innerHeight - currentDrag.offsetHeight - 2}px`;
         }
     }
 
     if (currentResize) {
         currentResize.style.width = `${e.clientX - currentResize.offsetLeft - offsetX}px`;
         currentResize.style.height = `${e.clientY - currentResize.offsetTop - offsetY}px`;
+
+        // Lock resizing to the desktop frame
+        if (parseInt(currentResize.style.left) + parseInt(currentResize.style.width) > window.innerWidth - 6) {
+            currentResize.style.width = `${window.innerWidth - parseInt(currentResize.style.left) - 6}px`
+        }
+        if (parseInt(currentResize.style.top) + parseInt(currentResize.style.height) > window.innerHeight - 6) {
+            currentResize.style.height = `${window.innerHeight - parseInt(currentResize.style.top) - 6}px`
+        }
 
         document.body.style.userSelect = 'none';
     }
@@ -221,6 +246,16 @@ document.getElementById("drag").addEventListener("animationend", () => {
     document.getElementById("drag").style.display = "none"
 })
 
+// Startup app
+if (urlParams.has("app")) {
+    let startup_app = urlParams.get("app")
+    if (startup_app != "")  {
+        createWindow(startup_app)
+    }
+} else {
+    createWindow("aboutme") // Create the initial window
+}
+
 // API
 window.addEventListener("message", (event) => {
     let data = JSON.parse(event.data)
@@ -229,5 +264,3 @@ window.addEventListener("message", (event) => {
         createWindow(data["id"])
     }
 });
-
-createWindow("aboutme") // Create the initial window
