@@ -6,11 +6,13 @@
     color: #FFFFFF;
     font-family: "Montserrat Alternates", serif;
     font-weight: 400;
+    cursor: url("../../assets/cursor.png") 1 1, auto;
 }
 
 body {
     background-color: #222222;
-    cursor: url("../../assets/cursor.png") 1 1, auto;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 a {
