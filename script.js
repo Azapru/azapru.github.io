@@ -88,7 +88,6 @@ function createWindow(app) {
             appArea.onload = function () { // Bring window to top if clicked inside the frame
                 const iframeDoc = appArea.contentWindow.document;
                 iframeDoc.addEventListener("mousedown", function () {
-                    console.log("Clicked inside the iframe!");
                     appArea.parentElement.style.zIndex = zIndexCounter++;
                     document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
                 });
@@ -221,5 +220,14 @@ document.getElementById("drag").addEventListener("animationend", () => {
     document.getElementById("drag").classList.remove("fadeOutAnim")
     document.getElementById("drag").style.display = "none"
 })
+
+// API
+window.addEventListener("message", (event) => {
+    let data = JSON.parse(event.data)
+
+    if (data["type"] == "open_app") {
+        createWindow(data["id"])
+    }
+});
 
 createWindow("aboutme") // Create the initial window
