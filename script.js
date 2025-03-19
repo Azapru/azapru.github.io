@@ -85,6 +85,14 @@ function createWindow(app) {
             appArea.className = "appArea";
             appArea.src = `apps/${app}/`
             appWindow.appendChild(appArea);
+            appArea.onload = function () { // Bring window to top if clicked inside the frame
+                const iframeDoc = appArea.contentWindow.document;
+                iframeDoc.addEventListener("mousedown", function () {
+                    console.log("Clicked inside the iframe!");
+                    appArea.parentElement.style.zIndex = zIndexCounter++;
+                    document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
+                });
+            };
 
             // Resize
             const resize = document.createElement("div");
@@ -112,17 +120,6 @@ document.addEventListener('mousedown', (e) => {
         document.querySelectorAll(".appArea").forEach(element => {
             element.style.pointerEvents = "none";
         });
-    }
-    
-    // Once clicked, loops through parent elements until it finds a window to bring it to top.
-    let currentElement = e.target;
-    while (currentElement) {
-        if (currentElement.classList.contains("appArea")) {
-            currentElement.parentElement.style.zIndex = zIndexCounter++;
-            document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
-            break;
-        }
-        currentElement = currentElement.parentElement;
     }
 
     if (e.target.classList.contains("resize")) {
