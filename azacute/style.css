@@ -74,7 +74,14 @@ body {
 }
 
 .center {
-    margin-top: 12px;
+    margin-top: 4px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.label-desc {
+    margin-top: 16px;
+    margin-bottom: 16px;
     font-size: 18px;
     text-align: center;
 }

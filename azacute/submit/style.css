@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
+    color: #efefef;
+}
+
+a, a > b {
+    text-decoration: none;
+    color: rgb(213, 84, 217);
+}
+
+a:hover {
+    color: #a9a9a9;
+    cursor: pointer;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url("../bg2.jpg");
+	background-color: #000;
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+.main {
+    min-width: 960px;
+    width: 960px;
+    height: fit-content;
+    border: 1px #898989 solid;
+    margin: 0 auto;
+    background-color: #181A1B;
+    margin-bottom: 64px;
+}
+
+.banner {
+    width: 100%;
+}
+
+.title {
+    margin-top: 32px;
+    margin-left: 32px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.big {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.footer {
+    margin-top: 16px;
+    padding: 2px;
+    color: #FFF;
+    text-align: center;
+    background-color: #000;
+}
+
+.center {
+    margin-top: 12px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.links {
+    margin-top: 8px;
+}
+
+.break {
+    height: 16px;
+}
+
+.text-area {
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 8px;
+    font-size: 18px;
+}
