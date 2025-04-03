@@ -1,0 +1,165 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "MS PGothic", sans-serif;
+    color: #efefef;
+}
+
+a, a > b {
+    text-decoration: none;
+    color: rgb(213, 84, 217);
+}
+
+a:hover {
+    color: #a9a9a9;
+    cursor: pointer;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url(cover.jpg);
+	background-color: #000;
+	background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* This makes the background follow when scrolling */
+    width: 100%;
+    height: 100%;
+}
+
+.cover-space {
+    height: 15vh;
+}
+
+.darken-bg {
+    background-color: #000000c1;
+}
+
+.main {
+    min-width: 960px;
+    width: 960px;
+    height: fit-content;
+    border: 1px #898989 solid;
+    margin: 0 auto;
+    background-color: #181A1B;
+}
+
+.bottom-space {
+    height: 64px;
+    background-color: #000000c1;
+}
+
+.banner {
+    width: 100%;
+}
+
+.title {
+    margin-top: 32px;
+    margin-left: 32px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.big {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.footer {
+    padding: 2px;
+    color: #FFF;
+    text-align: center;
+    background-color: #000;
+}
+
+.center {
+    margin-top: 12px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.info {
+    display: flex;
+}
+
+.cover-side {
+    flex: 2;
+    padding: 32px;
+}
+
+.info-side {
+    flex: 3;
+    padding: 32px;
+}
+
+.cover {
+    width: 100%;
+    border: #898989 1px solid;
+}
+
+.info-table {
+    font-size: 20px;
+}
+
+.info-table td {
+    padding-right: 32px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.track {
+    font-size: 20px;
+    padding: 32px;
+    width: 100%;
+}
+
+.track td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ffffff61;
+}
+
+.track th {
+    width: 16px;
+}
+
+th {
+    padding-right: 16px;
+}
+
+.logo {
+    width: 100%;
+}
+
+.listen {
+    width: 100%;
+    display: flex;
+    padding: 32px;
+    font-size: 20px;
+}
+
+.col-small {
+    flex: 1;
+}
+
+.col {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.col a {
+    padding-bottom: 8px;
+}
+
+hr {
+    border-color: #ffffff20;
+    width: 90%;
+}
+
+.center-hr {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
