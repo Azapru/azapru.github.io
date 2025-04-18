@@ -27,6 +27,7 @@ function createWindow(app) {
             appWindow.className = "appWindow";
             appWindow.style.zIndex = zIndexCounter++; // Make sure it on top
             document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
+            document.getElementById("bloom").style.zIndex = zIndexCounter++;
             if (center == true) {
                 appWindow.style.left = `${window.innerWidth/2 - width/2}px`;
                 appWindow.style.top = `${window.innerHeight/2 - height/2}px`;
@@ -92,6 +93,7 @@ function createWindow(app) {
                 iframeDoc.addEventListener("mousedown", function () {
                     appArea.parentElement.style.zIndex = zIndexCounter++;
                     document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
+                    document.getElementById("bloom").style.zIndex = zIndexCounter++;
                 });
             };
 
@@ -128,6 +130,7 @@ document.addEventListener('mousedown', (e) => {
 
         currentDrag.style.zIndex = zIndexCounter++;
         document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
+        document.getElementById("bloom").style.zIndex = zIndexCounter++;
 
         offsetX = e.clientX - currentDrag.offsetLeft;
         offsetY = e.clientY - currentDrag.offsetTop;
@@ -143,6 +146,7 @@ document.addEventListener('mousedown', (e) => {
 
         currentResize.style.zIndex = zIndexCounter++;
         document.getElementById("watermark").style.zIndex = zIndexCounter++;
+        document.getElementById("bloom").style.zIndex = zIndexCounter++;
 
         // This simple math got me dizzy idk why it took me so long
         offsetX = e.clientX - currentResize.offsetWidth - currentResize.offsetLeft + 4;
