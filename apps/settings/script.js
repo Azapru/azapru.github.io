@@ -1,3 +1,5 @@
+document.getElementById("reset_value").innerText = localStorage.getItem("reset_value")
+
 // Load
 if (localStorage.getItem("bloom") == "on") {
     document.getElementById("checkbox-bloom").checked = true

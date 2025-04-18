@@ -254,6 +254,22 @@ document.getElementById("drag").addEventListener("animationend", () => {
     document.getElementById("drag").style.display = "none"
 })
 
+// Update reset
+let reset_value = 2
+
+if (localStorage.getItem("reset_value") != null) {
+    if (localStorage.getItem("reset_value") < reset_value) {
+        localStorage.setItem("bloom", "on")
+        localStorage.setItem("crt", "off")
+        localStorage.setItem("welcome", "on")
+        localStorage.setItem("theme", "night-storm")
+
+        localStorage.setItem("reset_value", reset_value);
+    }
+} else {
+    localStorage.setItem("reset_value", reset_value);
+}
+
 // Set default settings
 if (localStorage.getItem("bloom") == null) {
     localStorage.setItem("bloom", "on")
@@ -265,7 +281,7 @@ if (localStorage.getItem("welcome") == null) {
     localStorage.setItem("welcome", "on")
 }
 if (localStorage.getItem("theme") == null) {
-    localStorage.setItem("theme", "default-theme")
+    localStorage.setItem("theme", "night-storm")
 }
 
 // Load settings
