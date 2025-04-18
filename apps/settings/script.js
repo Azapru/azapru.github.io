@@ -11,6 +11,12 @@ if (localStorage.getItem("crt") == "on") {
     document.getElementById("checkbox-crt").checked = false
 }
 
+if (localStorage.getItem("welcome") == "on") {
+    document.getElementById("checkbox-welcome").checked = true
+} else {
+    document.getElementById("checkbox-welcome").checked = false
+}
+
 // Set
 function bloomChanged() {
     let bloom = document.getElementById("checkbox-bloom").checked
@@ -27,5 +33,14 @@ function crtChanged() {
         change_setting("crt", "on")
     } else {
         change_setting("crt", "off")
+    }
+}
+
+function welcomeChanged() {
+    let welcome = document.getElementById("checkbox-welcome").checked
+    if (welcome) {
+        change_setting("welcome", "on")
+    } else {
+        change_setting("welcome", "off")
     }
 }

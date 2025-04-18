@@ -254,22 +254,15 @@ document.getElementById("drag").addEventListener("animationend", () => {
     document.getElementById("drag").style.display = "none"
 })
 
-// Startup app
-if (urlParams.has("app")) {
-    let startup_app = urlParams.get("app")
-    if (startup_app != "")  {
-        createWindow(startup_app)
-    }
-} else {
-    createWindow("aboutme") // Create the initial window
-}
-
 // Set default settings
 if (localStorage.getItem("bloom") == null) {
     localStorage.setItem("bloom", "on")
 }
 if (localStorage.getItem("crt") == null) {
     localStorage.setItem("crt", "off")
+}
+if (localStorage.getItem("welcome") == null) {
+    localStorage.setItem("welcome", "on")
 }
 
 // Load settings
@@ -285,6 +278,15 @@ if (localStorage.getItem("crt") == "on") {
     document.getElementById("crt").style.display = "none"
 }
 
+if (urlParams.has("app")) {
+    let startup_app = urlParams.get("app")
+    if (startup_app != "")  {
+        createWindow(startup_app)
+    }
+} else if (localStorage.getItem("welcome") == "on") {
+    createWindow("aboutme") // Create the initial window
+}
+
 
 // API
 window.addEventListener("message", (event) => {
@@ -298,21 +300,19 @@ window.addEventListener("message", (event) => {
         if (data["setting"] == "bloom") {
             if (data["status"] == "on") {
                 document.getElementById("bloom").style.display = "block"
-                localStorage.setItem("bloom", "on");
             } else if (data["status"] == "off") {
                 document.getElementById("bloom").style.display = "none"
-                localStorage.setItem("bloom", "off");
             }
         }
 
         if (data["setting"] == "crt") {
             if (data["status"] == "on") {
                 document.getElementById("crt").style.display = "block"
-                localStorage.setItem("crt", "on");
             } else if (data["status"] == "off") {
                 document.getElementById("crt").style.display = "none"
-                localStorage.setItem("crt", "off");
             }
         }
+
+        localStorage.setItem(data["setting"], data["status"]);
     }
 });
