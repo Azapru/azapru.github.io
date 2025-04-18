@@ -27,6 +27,7 @@ function createWindow(app) {
             appWindow.className = "appWindow";
             appWindow.style.zIndex = zIndexCounter++; // Make sure it on top
             document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
+            document.getElementById("crt").style.zIndex = zIndexCounter++;
             document.getElementById("bloom").style.zIndex = zIndexCounter++;
             if (center == true) {
                 appWindow.style.left = `${window.innerWidth/2 - width/2}px`;
@@ -93,6 +94,7 @@ function createWindow(app) {
                 iframeDoc.addEventListener("mousedown", function () {
                     appArea.parentElement.style.zIndex = zIndexCounter++;
                     document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
+                    document.getElementById("crt").style.zIndex = zIndexCounter++;
                     document.getElementById("bloom").style.zIndex = zIndexCounter++;
                 });
             };
@@ -130,6 +132,7 @@ document.addEventListener('mousedown', (e) => {
 
         currentDrag.style.zIndex = zIndexCounter++;
         document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
+        document.getElementById("crt").style.zIndex = zIndexCounter++;
         document.getElementById("bloom").style.zIndex = zIndexCounter++;
 
         offsetX = e.clientX - currentDrag.offsetLeft;
@@ -146,6 +149,7 @@ document.addEventListener('mousedown', (e) => {
 
         currentResize.style.zIndex = zIndexCounter++;
         document.getElementById("watermark").style.zIndex = zIndexCounter++;
+        document.getElementById("crt").style.zIndex = zIndexCounter++;
         document.getElementById("bloom").style.zIndex = zIndexCounter++;
 
         // This simple math got me dizzy idk why it took me so long
@@ -260,11 +264,55 @@ if (urlParams.has("app")) {
     createWindow("aboutme") // Create the initial window
 }
 
+// Set default settings
+if (localStorage.getItem("bloom") == null) {
+    localStorage.setItem("bloom", "on")
+}
+if (localStorage.getItem("crt") == null) {
+    localStorage.setItem("crt", "off")
+}
+
+// Load settings
+if (localStorage.getItem("bloom") == "on") {
+    document.getElementById("bloom").style.display = "block"
+} else {
+    document.getElementById("bloom").style.display = "none"
+}
+
+if (localStorage.getItem("crt") == "on") {
+    document.getElementById("crt").style.display = "block"
+} else {
+    document.getElementById("crt").style.display = "none"
+}
+
+
 // API
 window.addEventListener("message", (event) => {
     let data = JSON.parse(event.data)
 
     if (data["type"] == "open_app") {
         createWindow(data["id"])
+    }
+
+    if (data["type"] == "change_setting") {
+        if (data["setting"] == "bloom") {
+            if (data["status"] == "on") {
+                document.getElementById("bloom").style.display = "block"
+                localStorage.setItem("bloom", "on");
+            } else if (data["status"] == "off") {
+                document.getElementById("bloom").style.display = "none"
+                localStorage.setItem("bloom", "off");
+            }
+        }
+
+        if (data["setting"] == "crt") {
+            if (data["status"] == "on") {
+                document.getElementById("crt").style.display = "block"
+                localStorage.setItem("crt", "on");
+            } else if (data["status"] == "off") {
+                document.getElementById("crt").style.display = "none"
+                localStorage.setItem("crt", "off");
+            }
+        }
     }
 });

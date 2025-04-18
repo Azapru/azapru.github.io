@@ -1,0 +1,31 @@
+// Load
+if (localStorage.getItem("bloom") == "on") {
+    document.getElementById("checkbox-bloom").checked = true
+} else {
+    document.getElementById("checkbox-bloom").checked = false
+}
+
+if (localStorage.getItem("crt") == "on") {
+    document.getElementById("checkbox-crt").checked = true
+} else {
+    document.getElementById("checkbox-crt").checked = false
+}
+
+// Set
+function bloomChanged() {
+    let bloom = document.getElementById("checkbox-bloom").checked
+    if (bloom) {
+        change_setting("bloom", "on")
+    } else {
+        change_setting("bloom", "off")
+    }
+}
+
+function crtChanged() {
+    let crt = document.getElementById("checkbox-crt").checked
+    if (crt) {
+        change_setting("crt", "on")
+    } else {
+        change_setting("crt", "off")
+    }
+}

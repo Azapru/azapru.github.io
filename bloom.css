@@ -1,0 +1,12 @@
+#bloom {
+    position: fixed;
+    z-index: 10000;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    backdrop-filter: blur(20px);
+    pointer-events: none;
+    filter: brightness(150%) contrast(100%) saturate(200%);
+    opacity: 25%;
+}
