@@ -10,18 +10,18 @@
 
 body {
     background-color: #000000;
-    background-image: url("assets/background.png");
+    background-image: url("background.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    cursor: url("assets/cursor.png") 1 1, auto;
+    cursor: url("cursor.png") 1 1, auto;
 }
 
 a {
-    cursor: url("assets/pointer.png") 6 1, pointer;
+    cursor: url("pointer.png") 6 1, pointer;
 }
 
 @keyframes pop-out {
@@ -97,7 +97,7 @@ a {
 
 .close {
     pointer-events: all;
-    background-image: url("assets/close.png");
+    background-image: url("close.png");
     background-size: cover;
     width: 32px;
     height: 32px;
@@ -118,7 +118,7 @@ a {
 
 .resize {
     pointer-events: all;
-    background-image: url("assets/resize.png");
+    background-image: url("resize.png");
     background-size: cover;
     opacity: 25%;
     width: 32px;
@@ -149,7 +149,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: url("assets/pointer.png") 6 1, pointer;
+    cursor: url("pointer.png") 6 1, pointer;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.75s;
     text-decoration: none;
 }
@@ -210,7 +210,7 @@ a {
 
 .link {
     color: #f29aff;
-    cursor: url("assets/pointer.png") 6 1, pointer;
+    cursor: url("pointer.png") 6 1, pointer;
 }
 
 .drag {

@@ -6,7 +6,7 @@
     color: #FFFFFF;
     font-family: "Montserrat Alternates", serif;
     font-weight: 400;
-    cursor: url("../../assets/cursor.png") 1 1, auto;
+    cursor: url("cursor.png") 1 1, auto;
     scrollbar-color: #505050 #222222;
     scrollbar-width: thin;
 }
@@ -19,10 +19,10 @@ body {
 }
 
 a {
-    cursor: url("../../assets/pointer.png") 6 1, pointer;
+    cursor: url("pointer.png") 6 1, pointer;
 }
 
 .link {
     color: #f29aff;
-    cursor: url("../../assets/pointer.png") 6 1, pointer;
+    cursor: url("pointer.png") 6 1, pointer;
 }
