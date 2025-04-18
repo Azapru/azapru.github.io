@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic&display=swap');
 
 * {
     padding: 0;
     margin: 0;
-    color: #FFFFFF;
-    font-family: "Montserrat Alternates", serif;
-    font-weight: 400;
+    color: #d4d4d4;
+    font-family: "Special Gothic", sans-serif;
+    font-weight: 200;
     cursor: url("cursor.png") 1 1, auto;
     scrollbar-color: #505050 #222222;
     scrollbar-width: thin;
 }
 
 body {
-    background-color: #222222;
+    background-color: #1B1B1B;
     min-width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
@@ -39,7 +39,7 @@ a {
     padding-left: 30px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -108,7 +108,7 @@ a {
 	position: relative;
 	display: inline-block;
 	width: fit-content;
-	height: 32px;
+	height: 28px;
 	cursor: url("pointer.png") 6 1, pointer;
 }
 
@@ -120,8 +120,7 @@ a {
 	width: 100%;
 	height: 100%;
 	padding: 0 24px 0 6px;      /* room for our arrow on the right */
-	font-size: 18px;
-	line-height: 32px;          /* centers text vertically */
+	font-size: 16px;
 	background-color: #eee;
 	border: 2px solid #eee;
 	color: #333;

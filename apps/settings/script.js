@@ -17,6 +17,8 @@ if (localStorage.getItem("welcome") == "on") {
     document.getElementById("checkbox-welcome").checked = false
 }
 
+document.getElementById("select-theme").value = localStorage.getItem("theme")
+
 // Set
 function bloomChanged() {
     let bloom = document.getElementById("checkbox-bloom").checked
@@ -43,4 +45,10 @@ function welcomeChanged() {
     } else {
         change_setting("welcome", "off")
     }
+}
+
+function themeChanged() {
+    let theme = document.getElementById("select-theme").value
+    change_setting("theme", theme)
+    refresh()
 }

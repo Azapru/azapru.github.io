@@ -264,6 +264,9 @@ if (localStorage.getItem("crt") == null) {
 if (localStorage.getItem("welcome") == null) {
     localStorage.setItem("welcome", "on")
 }
+if (localStorage.getItem("theme") == null) {
+    localStorage.setItem("theme", "default-theme")
+}
 
 // Load settings
 if (localStorage.getItem("bloom") == "on") {
@@ -287,6 +290,7 @@ if (urlParams.has("app")) {
     createWindow("aboutme") // Create the initial window
 }
 
+document.getElementById("theme").href = "apps/" + localStorage.getItem("theme") + "/desktop.css"
 
 // API
 window.addEventListener("message", (event) => {
@@ -294,6 +298,10 @@ window.addEventListener("message", (event) => {
 
     if (data["type"] == "open_app") {
         createWindow(data["id"])
+    }
+
+    if (data["type"] == "refresh") {
+        location.reload()
     }
 
     if (data["type"] == "change_setting") {

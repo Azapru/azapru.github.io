@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azzierium Desktop | Azapru's Website</title>
-    <link rel="stylesheet" href="apps/default-theme/desktop.css">
+    <link rel="stylesheet" href="apps/default-theme/desktop.css" id="theme">
     <link rel="stylesheet" href="bloom.css">
     <link rel="stylesheet" href="crt.css">
 </head>
 <body>
     <h3 id="watermark">Azzierium Desktop ALPHA v0.3-25.4.18.0</h3>
+
+    <h1 class="no-theme-warning">
+        WARNING: If you are seeing this, the current theme has most likely broke!<br>
+        <span onclick="localStorage.clear(); location.reload();" style="color: #ea60ff; cursor: pointer;">Click here</span> to clear all settings.
+    </h1>
 
     <div id="bloom"></div>
     <div id="crt"></div>
