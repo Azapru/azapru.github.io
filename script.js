@@ -75,7 +75,6 @@ function createWindow(app) {
             const close = document.createElement("div");
             close.className = "close";
             close.addEventListener("click", (e) => {
-                playSound("close");
                 appWindow.classList.add("close-anim");
                 appWindow.addEventListener("animationend", () => {
                     e.stopPropagation();
