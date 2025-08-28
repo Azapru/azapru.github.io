@@ -20,7 +20,7 @@ body {
     background-image: url(bg2.jpg);
 	background-color: #000;
 	background-attachment: scroll;
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 	background-position: center top;
 }
 
