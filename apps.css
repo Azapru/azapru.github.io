@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    color: #d4d4d4;
+    font-family: "Special Gothic", sans-serif;
+    font-weight: 200;
+    cursor: url("cursor.png") 1 1, auto;
+    scrollbar-color: #505050 #222222;
+    scrollbar-width: thin;
+}
+
+body {
+    background-color: #1B1B1B;
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    cursor: url("pointer.png") 6 1, pointer;
+}
+
+.link {
+    color: #f29aff;
+    cursor: url("pointer.png") 6 1, pointer;
+}
+
+.checkbox {
+    width: 32px;
+    border: white 2px solid;
+}
+
+/* The container */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: url("pointer.png") 6 1, pointer;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    cursor: url("pointer.png") 6 1, pointer;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #ea60ff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/* Container to position the custom arrow */
+.select-container {
+	position: relative;
+	display: inline-block;
+	width: fit-content;
+	height: 28px;
+	cursor: url("pointer.png") 6 1, pointer;
+}
+
+/* Hide native arrow, apply box styling */
+.select-container select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 100%;
+	padding: 0 24px 0 6px;      /* room for our arrow on the right */
+	font-size: 16px;
+	background-color: #eee;
+	border: 2px solid #eee;
+	color: #333;
+	cursor: inherit;
+	user-select: none;
+}
+
+/* Hover state like your checkbox */
+.select-container:hover select {
+	background-color: #ccc;
+	border: 2px solid #ccc;
+}
+
+/* Focus (when “open”) to match your purple checked state */
+.select-container:focus-within select {
+	border-color: #ea60ff;
+}
+
+/* Draw custom arrow with a CSS triangle */
+.select-container::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 6px;
+	transform: translateY(-50%);
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #222222;
+	pointer-events: none;
+}
+
+/* Change arrow color when focused/opened */
+.select-container:focus-within::after {
+	border-top-color: #ea60ff;
+}
+
+/* Styles all the options in the popup list */
+.select-container select option {
+	background-color: #fff;    /* menu bg */
+	color: #333;               /* menu text */
+}

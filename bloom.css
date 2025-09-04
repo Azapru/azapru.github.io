@@ -10,3 +10,7 @@
     filter: brightness(150%) contrast(100%) saturate(200%);
     opacity: 25%;
 }
+
+.bloomColorCorrection {
+    filter: brightness(110%) contrast(105%);
+}

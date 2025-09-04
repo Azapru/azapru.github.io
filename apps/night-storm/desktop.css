@@ -18,6 +18,8 @@ body {
     width: 100vw;
     height: 100vh;
     cursor: url("cursor.png") 1 1, auto;
+
+    filter: brightness(110%) contrast(105%);
 }
 
 a {

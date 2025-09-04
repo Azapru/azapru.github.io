@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    color: #FFFFFF;
+    font-family: "Special Gothic", sans-serif;
+    font-weight: 400;
+}
+
+body {
+    background-color: #000000;
+    background-image: url("assets/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    cursor: url("assets/cursor.png") 1 1, auto;
+}
+
+a {
+    cursor: url("assets/pointer.png") 6 1, pointer;
+}
+
+@keyframes pop-out {
+    0% {
+        transform: scale(0.75);
+        opacity: 0%;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 100%;
+    }
+}
+
+@keyframes closeAnim {
+    0% {
+        transform: scale(1);
+        opacity: 100%;
+    }
+    100% {
+        transform: scale(0.75);
+        opacity: 0%;
+    }
+}
+
+.close-anim {
+    animation: closeAnim 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards !important;
+}
+
+.appWindow {
+    width: 600px;
+    height: 500px;
+    background-color: #222222;
+    color: #202020;
+    display: flex;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: #363636 1px solid;
+    min-width: 100px;
+    min-height: 100px;
+
+    animation: pop-out 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+@media (max-width: 768px) {
+    .appWindow {
+        width: calc(100% - 4px) !important;
+        height: calc(100% - 4px) !important;
+    }
+
+    .bar {
+        height: 64px !important;
+    }
+
+    .close {
+        width: 64px !important;
+        height: 64px !important;
+    }    
+}
+
+.bar {
+    height: 32px;
+    width: 100%;
+    background-color: #131313;
+    user-select: none !important;
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.close {
+    pointer-events: all;
+    background-image: url("assets/close.png");
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    user-select: none !important;
+}
+
+.close:hover {
+    filter: brightness(50%);
+}
+
+.appArea {
+    margin: 0;
+    width: 100%;
+    height: calc(100% - 32px);
+    overflow: scroll;
+    border: none;
+}
+
+.resize {
+    pointer-events: all;
+    background-image: url("assets/resize.png");
+    background-size: cover;
+    opacity: 25%;
+    width: 32px;
+    height: 32px;
+    user-select: none !important;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+}
+
+.grid {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 90px); /* Fixed column width */
+    grid-template-rows: repeat(auto-fill, 110px); /* Fixed row height */
+    grid-auto-flow: column dense; /* Flow downwards first, then wrap into columns */
+    gap: 10px; /* Spacing between items */
+    max-height: 90vh; /* Constrain grid height */
+    user-select: none;
+}
+
+.icon {
+    font-size: 14px;
+    width: 90px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: url("assets/pointer.png") 6 1, pointer;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.75s;
+    text-decoration: none;
+}
+
+.icon:hover {
+    scale: 1.1;
+    text-decoration: underline;
+}
+
+.icon:active {
+    scale: 0.9;
+}
+
+.icon > img {
+    width: 70px;
+    height: 70px;
+    padding-bottom: 8px;
+}
+
+.icon > p {
+    background-color: #00000070;
+    text-align: center;
+}
+
+.external {
+    width: 16px;
+}
+
+#watermark {
+    position: fixed;
+    bottom: 16px;
+    right: 24px;
+    opacity: 25%;
+    text-align: right;
+    user-select: none;
+    pointer-events: none;
+}
+
+.appTitle {
+    margin-top: 6px;
+    margin-left: 36px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #00000063;
+    font-size: 14px;
+}
+
+.appIcon {
+    margin-top: 1px;
+    margin-left: 1px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    background-size: cover;
+}
+
+.link {
+    color: #f29aff;
+    cursor: url("assets/pointer.png") 6 1, pointer;
+}
+
+.drag {
+    background-color: #cb65db78;
+    border: #f29aff solid 2px;
+    width: 0px;
+    height: 0px;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 100%;
+    user-select: none;
+    pointer-events: none;
+}
+
+.fadeOutAnim {
+    animation: fade-out-anim 0.25s linear forwards !important;
+}
+
+@keyframes fade-out-anim {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
+.no-theme-warning {
+    display: none;
+}

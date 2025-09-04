@@ -255,12 +255,12 @@ document.getElementById("drag").addEventListener("animationend", () => {
 })
 
 // Update reset
-let reset_value = 2
+let reset_value = 8
 
 if (localStorage.getItem("reset_value") != null) {
-    if (localStorage.getItem("reset_value") < reset_value) {
+    if (parseInt(localStorage.getItem("reset_value")) < reset_value) {
         localStorage.setItem("bloom", "on")
-        localStorage.setItem("crt", "off")
+        localStorage.setItem("crt", "on")
         localStorage.setItem("welcome", "on")
         localStorage.setItem("theme", "night-storm")
 
@@ -275,7 +275,7 @@ if (localStorage.getItem("bloom") == null) {
     localStorage.setItem("bloom", "on")
 }
 if (localStorage.getItem("crt") == null) {
-    localStorage.setItem("crt", "off")
+    localStorage.setItem("crt", "on")
 }
 if (localStorage.getItem("welcome") == null) {
     localStorage.setItem("welcome", "on")
@@ -287,8 +287,10 @@ if (localStorage.getItem("theme") == null) {
 // Load settings
 if (localStorage.getItem("bloom") == "on") {
     document.getElementById("bloom").style.display = "block"
+    document.getElementById("body").classList.add("bloomColorCorrection")
 } else {
     document.getElementById("bloom").style.display = "none"
+    document.getElementById("body").classList.remove("bloomColorCorrection")
 }
 
 if (localStorage.getItem("crt") == "on") {
@@ -306,7 +308,7 @@ if (urlParams.has("app")) {
     createWindow("aboutme") // Create the initial window
 }
 
-document.getElementById("theme").href = "apps/" + localStorage.getItem("theme") + "/desktop.css"
+//document.getElementById("theme").href = "apps/" + localStorage.getItem("theme") + "/desktop.css"
 
 // API
 window.addEventListener("message", (event) => {
@@ -324,8 +326,10 @@ window.addEventListener("message", (event) => {
         if (data["setting"] == "bloom") {
             if (data["status"] == "on") {
                 document.getElementById("bloom").style.display = "block"
+                document.getElementById("body").classList.add("bloomColorCorrection")
             } else if (data["status"] == "off") {
                 document.getElementById("bloom").style.display = "none"
+                document.getElementById("body").classList.remove("bloomColorCorrection")
             }
         }
 

@@ -10,4 +10,4 @@ function change_setting(setting, status) {
     window.parent.postMessage(`{"type": "change_setting", "setting": "${setting}", "status": "${status}"}`, "*")
 }
 
-document.getElementById("theme").href = "../" + localStorage.getItem("theme") + "/apps.css"
+//document.getElementById("theme").href = "../" + localStorage.getItem("theme") + "/apps.css"
