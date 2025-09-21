@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USS - SEPA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <p>Select an XML file.</p>
+        <input id="fileInput" type="file" accept=".xml,text/xml,application/xml">
+        <div class="controls">
+            <button id="downloadTxt" disabled>Download summary (.txt)</button>
+        </div>
+        <div id="output"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
