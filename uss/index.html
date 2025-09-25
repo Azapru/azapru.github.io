@@ -10,15 +10,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="msg-frame">
+        <div id="msg">
+            <p id="msg-title">Message box title</p>
+            <p id="msg-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos consequuntur omnis blanditiis iusto illo! Debitis dolorem nesciunt maiores.</p>
+            <button class="btn-clean" id="msg-button" onclick="msg_close()">Close</button>
+        </div>
+    </div>
+
+    <div id="snackbar-frame">
+        <div id="snackbar">
+            <span id="snackbar-content">This is a funi message</span>
+            <button class="btn-clean" id="snackbar-btn" onclick="snackbar_hide()">Close</button>
+        </div>
+    </div>
+
     <div class="card">
-        <p>Select an XML file.</p>
-        <input id="fileInput" type="file" accept=".xml,text/xml,application/xml">
+        <p class="mb2">Select an XML file.</p>
+        <input id="fileInput" type="file" accept=".xml,text/xml,application/xml" class="mb2">
         <div class="controls">
             <button id="downloadTxt" disabled>Download summary (.txt)</button>
+            <button id="checkWhiteListBtn" disabled>Check white list</button>
         </div>
         <div id="output"></div>
     </div>
 
+    <script src="app-fw.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

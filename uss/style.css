@@ -1,37 +1,304 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto.ttf");
+}
+
 * {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    color: #e6e1f5;
     padding: 0;
     margin: 0;
-    font-family: "Roboto Condensed", sans-serif;
 }
 
 body {
-    background-color: rgb(221, 223, 227);
+    background-color: #1c1b1f;
+    min-width: 100vw;
 }
+
+button {
+    transition: ease-out 0.2s;
+    color: #1c1b1f;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgb(197, 178, 255);
+    border: none;
+}
+
+button:active {
+    background-color: rgb(216, 205, 255);
+    transition: ease-out 0.05s;
+}
+
+.btn-outlined {
+    border: #e6e1f5 solid 2px;
+    background-color: #1c1b1f;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #e6e1f5;
+}
+
+.btn-outlined:active {
+    background-color: #424148;
+}
+
+.btn-clean {
+    border: none;
+    background-color: #1c1b1f;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(197, 178, 255);
+    font-weight: bold;
+}
+
+.btn-clean:active {
+    background-color: #424148;
+}
+
+input[type="text"] {
+    background-color: #1c1b1f;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 6px;
+    border: #e6e1f5 solid 2px;
+}
+
+input[type="text"]:focus {
+  border: rgb(197, 178, 255) solid 2px;
+  outline: none;
+}
+
+.mb1 {
+    margin-bottom: 6px;
+}
+
+.mb2 {
+    margin-bottom: 8px;
+}
+
+.checkbox {
+    width: 32px;
+    border: white 2px solid;
+}
+
+/* The container */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 14px;
+    width: 14px;
+    background-color: #e6e1f5;
+    cursor: pointer;
+}
+
+.checkbox-container input ~ .checkmark {
+  border-radius: 4px;
+  background-color: #1c1b1f;
+  border: 2px #e6e1f5 solid;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: rgb(197, 178, 255);
+    border: 2px rgb(197, 178, 255) solid;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+    left: 3px;
+    top: 0px;
+    width: 4px;
+    height: 8px;
+    border: solid #1c1b1f;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-in {
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.2s ease forwards;
+}
+
+#msg-frame {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  position: fixed;
+  background-color: #000000c1;
+  z-index: 1000;
+}
+
+#msg {
+  background-color: #1c1b1f;
+  width: 50%;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+#msg-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+#msg-content {
+  color: #d2cce0;
+  margin-bottom: 12px;
+}
+
+
+
+@keyframes showSneakbar {
+  from { bottom: -64px; }
+  to { bottom: 16px; }
+}
+
+@keyframes hideSneakbar {
+  from { bottom: 16px; }
+  to { bottom: -64px; }
+}
+
+.showSnackbarAnim {
+  animation: showSneakbar 0.2s ease forwards;
+}
+
+.hideSnackbarAnim {
+  animation: hideSneakbar 0.2s ease forwards;
+}
+
+#snackbar-frame {
+  bottom: -64px;
+  position: fixed;
+  z-index: 2000;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+#snackbar {
+  border-radius: 6px;
+  background-color: #e6e1f5;
+  width: 75%;
+  padding: 12px;
+  display: flex;
+}
+
+#snackbar-content {
+  color: #1c1b1f;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+#snackbar-btn {
+  background-color: #e6e1f5;
+  color: #614aa6;
+}
+
+#snackbar-btn:active {
+  background-color: #c0bccf;
+}
+
+
+
+#sidesheet-frame {
+  display: none;
+  justify-content: flex-end;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  position: fixed;
+  background-color: #000000c1;
+  z-index: 500;
+}
+
+#sidesheet {
+  width: 35%;
+  height: 100vh;
+  background-color: #1c1b1f;
+  border-bottom-left-radius: 16px;
+  border-top-left-radius: 16px;
+}
+
 
 .card {
     border-radius: 8px;
     margin: 24px;
     padding: 12px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
-    background-color: rgb(255, 255, 255);
-}
-
-p {
-    margin-bottom: 8px;
-}
-
-button {
-    border: rgb(182, 182, 182) 1px solid;
-    border-radius: 8px;
-    padding: 6px;
-    margin-top: 8px;
-    background-color: #f2f3f6;
-    transition: ease 0.1s;
-}
-
-button:hover {
-    cursor: pointer;
-    background-color: rgb(228, 229, 234)
+    background-color: #2f2d34;
 }
 
 table {
@@ -42,11 +309,11 @@ table {
 
 th, td {
     padding: 8px;
-    border-bottom: 1px solid #cecece;
+    border-bottom: 1px solid #535158;
     text-align: left;
     font-size: 0.95rem;
 }
 
 th {
-    background:#eeeff3;
+    background:#36343b;
 }
