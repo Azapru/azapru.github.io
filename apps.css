@@ -6,7 +6,7 @@
     color: #d4d4d4;
     font-family: "Special Gothic", sans-serif;
     font-weight: 200;
-    cursor: url("cursor.png") 1 1, auto;
+    cursor: url("assets/cursor.png") 1 1, auto;
     scrollbar-color: #505050 #222222;
     scrollbar-width: thin;
 }
@@ -19,12 +19,12 @@ body {
 }
 
 a {
-    cursor: url("pointer.png") 6 1, pointer;
+    cursor: url("assets/pointer.png") 6 1, pointer;
 }
 
 .link {
     color: #f29aff;
-    cursor: url("pointer.png") 6 1, pointer;
+    cursor: url("assets/pointer.png") 6 1, pointer;
 }
 
 .checkbox {
@@ -44,7 +44,7 @@ a {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    cursor: url("pointer.png") 6 1, pointer;
+    cursor: url("assets/pointer.png") 6 1, pointer;
 }
 
 /* Hide the browser's default checkbox */
@@ -64,7 +64,7 @@ a {
     height: 20px;
     width: 20px;
     background-color: #eee;
-    cursor: url("pointer.png") 6 1, pointer;
+    cursor: url("assets/pointer.png") 6 1, pointer;
 }
 
 /* On mouse-over, add a grey background color */
@@ -109,7 +109,7 @@ a {
 	display: inline-block;
 	width: fit-content;
 	height: 28px;
-	cursor: url("pointer.png") 6 1, pointer;
+	cursor: url("assets/pointer.png") 6 1, pointer;
 }
 
 /* Hide native arrow, apply box styling */
@@ -163,4 +163,10 @@ a {
 .select-container select option {
 	background-color: #fff;    /* menu bg */
 	color: #333;               /* menu text */
+}
+
+hr {
+    color: #a0a0a0;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }

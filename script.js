@@ -10,25 +10,114 @@ let desktopDragPosX = 0
 let desktopDragPosY = 0
 let desktopDrag = false
 
+function getElementWithHighestZIndex(className) {
+    const elements = document.querySelectorAll(`.${className}`);
+    if (elements.length === 0) return null;
+
+    let maxZIndex = -Infinity;
+    let highestElement = null;
+
+    elements.forEach(element => {
+        const style = window.getComputedStyle(element);
+        // Skip elements with display: none
+        if (style.display === 'none') return;
+
+        const zIndexStr = style.zIndex;
+        // Convert to number; treat 'auto' or non-numeric as 0
+        const zIndex = parseInt(zIndexStr, 10);
+        const numericZIndex = isNaN(zIndex) ? 0 : zIndex;
+
+        if (numericZIndex > maxZIndex) {
+            maxZIndex = numericZIndex;
+            highestElement = element;
+        }
+    });
+
+    return highestElement;
+}
+
+function orderNotifs() {
+    const notifs = document.getElementsByClassName("notifBox");
+    for (let i = 0; i < notifs.length; i++) {
+        notifs[i].style.zIndex = zIndexCounter++;
+    }
+}
+
+function sendNotification(title, content, height, timeout) {
+    // Move past notifications up
+    const notifs = document.getElementsByClassName("notifBox");
+    for (let i = 0; i < notifs.length; i++) {
+        const currentBottom = parseInt(getComputedStyle(notifs[i]).bottom) || 0;
+        notifs[i].style.bottom = (currentBottom + height+16) + 'px';
+    }
+
+    // Create notification
+    const notification = document.createElement("div");
+    notification.className = "notifBox";
+    notification.style.height = height + "px";
+
+    const notifBoxTitleArea = document.createElement("div");
+    notifBoxTitleArea.className = "notifBoxTitleArea";
+
+    const notifTitle = document.createElement("span");
+    notifTitle.className = "notifTitle";
+    notifTitle.innerText = title;
+    notifBoxTitleArea.appendChild(notifTitle);
+
+    const notifClose = document.createElement("div");
+    notifClose.className = "notifClose";
+    notifClose.addEventListener("click", (e) => {
+        notification.classList.add("slide-out-anim");
+        notification.addEventListener("animationend", (e) => {
+            notification.remove();
+        })
+    })
+    notifBoxTitleArea.appendChild(notifClose);
+
+    notification.appendChild(notifBoxTitleArea);
+
+    const notifContent = document.createElement("div");
+    notifContent.className = "notifContent";
+    notifContent.innerHTML = content;
+    notification.appendChild(notifContent);
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.add("slide-out-anim");
+        notification.addEventListener("animationend", (e) => {
+            notification.remove();
+        })
+    }, timeout);
+
+    orderNotifs()
+    document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
+    document.getElementById("crt").style.zIndex = zIndexCounter++;
+    document.getElementById("bloom").style.zIndex = zIndexCounter++;
+}
+
 // Function for creating windows for apps
 function createWindow(app) {
     fetch(`apps/${app}/app.json`)
         .then(response => response.json())
         .then(data => {
-            title = data["window_title"]
-            x = data["x"]
-            y = data["y"]
-            width = data["width"]
-            height = data["height"]
-            allowResize = data["allow_resizing"]
-            center = data["center"]
+            title = data["window_title"];
+            x = data["x"];
+            y = data["y"];
+            width = data["width"];
+            height = data["height"];
+            allowResize = data["allow_resizing"];
+            center = data["center"];
 
+            // Create app window
             const appWindow = document.createElement('div');
             appWindow.className = "appWindow";
-            appWindow.style.zIndex = zIndexCounter++; // Make sure it on top
+            appWindow.style.zIndex = zIndexCounter++; // Make sure its on top
+            orderNotifs()
             document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
             document.getElementById("crt").style.zIndex = zIndexCounter++;
             document.getElementById("bloom").style.zIndex = zIndexCounter++;
+            // Set initial window position
             if (center == true) {
                 appWindow.style.left = `${window.innerWidth/2 - width/2}px`;
                 appWindow.style.top = `${window.innerHeight/2 - height/2}px`;
@@ -71,10 +160,45 @@ function createWindow(app) {
             appTitle.textContent = title;
             bar.appendChild(appTitle);
             
+            // Link button
+            const linkBtn = document.createElement("div");
+            linkBtn.className = "linkBtn";
+            linkBtn.addEventListener("click", (e) => {
+                sendNotification("Copied to clipboard", "Link to directly open this app has been copied to your clipboard!", 100, 3000)
+                navigator.clipboard.writeText(window.location.origin + window.location.pathname + "?app=" + app);
+            });
+            linkBtn.oncontextmenu = linkBtn.oncontextmenu = function() {return false;} // Disable right click menu for the link button
+            bar.appendChild(linkBtn);
+
+            // Minimize button
+            const minimize = document.createElement("div");
+            minimize.className = "minimize";
+            minimize.addEventListener("click", (e) => {
+                task.classList.add("taskHidden");
+                appWindow.classList.remove("window-show-anim");
+                appWindow.classList.remove("window-focus-anim");
+                appWindow.classList.add("window-hide-anim");
+                const handleAnimationEnd = (e) => {
+                    appWindow.style.display = "none";
+                    appWindow.classList.remove("window-hide-anim");
+                    appWindow.removeEventListener("animationend", handleAnimationEnd);
+                }
+                appWindow.addEventListener("animationend", handleAnimationEnd);
+            });
+            minimize.oncontextmenu = minimize.oncontextmenu = function() {return false;} // Disable right click menu for the minimize button
+            bar.appendChild(minimize);
+
             // Close button
             const close = document.createElement("div");
             close.className = "close";
             close.addEventListener("click", (e) => {
+                // Close task
+                task.classList.add("task-close-anim");
+                task.addEventListener("animationend", (e) => {
+                    task.remove();
+                });
+
+                // Close window
                 appWindow.classList.add("close-anim");
                 appWindow.addEventListener("animationend", () => {
                     e.stopPropagation();
@@ -93,18 +217,27 @@ function createWindow(app) {
                 const iframeDoc = appArea.contentWindow.document;
                 iframeDoc.addEventListener("mousedown", function () {
                     appArea.parentElement.style.zIndex = zIndexCounter++;
+                    orderNotifs()
                     document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
                     document.getElementById("crt").style.zIndex = zIndexCounter++;
                     document.getElementById("bloom").style.zIndex = zIndexCounter++;
                 });
             };
 
-            // Resize
+            // Resize area
             const resize = document.createElement("div");
             resize.className = "resize";
             if (allowResize == true) {
                 appWindow.appendChild(resize);
             }
+
+            // Pop out animation
+            appWindow.classList.add("pop-out-anim");
+            const handleAnimationEnd = (e) => {
+                appWindow.classList.remove("pop-out-anim");
+                appWindow.removeEventListener("animationend", handleAnimationEnd);
+            }
+            appWindow.addEventListener("animationend", handleAnimationEnd);
 
             document.body.appendChild(appWindow); // Add the window to the body
             
@@ -118,10 +251,85 @@ function createWindow(app) {
             if (parseInt(appWindow.style.left) + parseInt(appWindow.style.width) > window.innerWidth - 6) {
                 appWindow.style.width = `${window.innerWidth - parseInt(appWindow.style.left) - 6}px`
             }
-            if (parseInt(appWindow.style.top) + parseInt(appWindow.style.height) > window.innerHeight - 6) {
-                appWindow.style.height = `${window.innerHeight - parseInt(appWindow.style.top) - 6}px`
+            if (parseInt(appWindow.style.top) + parseInt(appWindow.style.height) > window.innerHeight - 6 - 48) {
+                appWindow.style.height = `${window.innerHeight - parseInt(appWindow.style.top) - 6 - 48}px`
             }
+
+            // Task bar stuff //
             
+            // Add taskbar entry
+            const task = document.createElement("div");
+            task.className = "task";
+            
+            task.addEventListener("mousedown", (e) => {
+                if (getElementWithHighestZIndex("appWindow") == appWindow) {
+                    if (appWindow.style.display == "none") {
+                        task.classList.remove("taskHidden");
+                        appWindow.style.display = "block";
+                        appWindow.classList.remove("window-hide-anim");
+                        appWindow.classList.remove("window-focus-anim");
+                        appWindow.classList.add("window-show-anim");
+                        const handleAnimationEnd = (e) => {
+                            appWindow.classList.remove("window-show-anim");
+                            appWindow.removeEventListener("animationend", handleAnimationEnd);
+                        }
+                        appWindow.addEventListener("animationend", handleAnimationEnd);
+                    } else {
+                        task.classList.add("taskHidden");
+                        appWindow.classList.remove("window-show-anim");
+                        appWindow.classList.remove("window-focus-anim");
+                        appWindow.classList.add("window-hide-anim");
+                        const handleAnimationEnd = (e) => {
+                            appWindow.style.display = "none";
+                            appWindow.classList.remove("window-hide-anim");
+                            appWindow.removeEventListener("animationend", handleAnimationEnd);
+                        }
+                        appWindow.addEventListener("animationend", handleAnimationEnd);
+                    }
+                } else {
+                    appWindow.style.zIndex = zIndexCounter++;
+                    orderNotifs()
+                    document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
+                    document.getElementById("crt").style.zIndex = zIndexCounter++;
+                    document.getElementById("bloom").style.zIndex = zIndexCounter++;
+                    console.log("Top Window")
+
+                    if (appWindow.style.display == "none") {
+                        task.classList.remove("taskHidden");
+                        appWindow.style.display = "block";
+                        appWindow.classList.remove("window-hide-anim");
+                        appWindow.classList.remove("window-focus-anim");
+                        appWindow.classList.add("window-show-anim");
+                        const handleAnimationEnd = (e) => {
+                            appWindow.classList.remove("window-show-anim");
+                            appWindow.removeEventListener("animationend", handleAnimationEnd);
+                        }
+                        appWindow.addEventListener("animationend", handleAnimationEnd);
+                    } else {
+                        appWindow.classList.add("window-focus-anim");
+                        const handleAnimationEnd = (e) => {
+                            appWindow.classList.remove("window-focus-anim");
+                            appWindow.removeEventListener("animationend", handleAnimationEnd);
+                        }
+                        appWindow.addEventListener("animationend", handleAnimationEnd);
+                    }
+                }
+            });
+            
+            // Task icon
+            const taskIcon = document.createElement("div");
+            taskIcon.className = "taskIcon";
+            taskIcon.style.backgroundImage = `url("apps/${app}/icon.png")`;
+            task.appendChild(taskIcon);
+
+            // Task title
+            const taskTitle = document.createElement("h3");
+            taskTitle.className = "taskTitle";
+            taskTitle.innerText = title;
+            task.appendChild(taskTitle);
+
+            document.getElementById("taskbar").appendChild(task);
+
         })
         .catch(error => console.error('Error:', error));
 }
@@ -131,6 +339,7 @@ document.addEventListener('mousedown', (e) => {
         currentDrag = e.target;
 
         currentDrag.style.zIndex = zIndexCounter++;
+        orderNotifs()
         document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
         document.getElementById("crt").style.zIndex = zIndexCounter++;
         document.getElementById("bloom").style.zIndex = zIndexCounter++;
@@ -148,6 +357,7 @@ document.addEventListener('mousedown', (e) => {
         currentResize = e.target.parentElement;
 
         currentResize.style.zIndex = zIndexCounter++;
+        orderNotifs()
         document.getElementById("watermark").style.zIndex = zIndexCounter++;
         document.getElementById("crt").style.zIndex = zIndexCounter++;
         document.getElementById("bloom").style.zIndex = zIndexCounter++;
@@ -199,8 +409,8 @@ document.addEventListener('mousemove', (e) => {
         if (e.clientX - offsetX + currentDrag.offsetWidth > window.innerWidth - 2) {
             currentDrag.style.left = `${window.innerWidth - currentDrag.offsetWidth - 2}px`;
         }
-        if (e.clientY - offsetY + currentDrag.offsetHeight > window.innerHeight - 2) {
-            currentDrag.style.top = `${window.innerHeight - currentDrag.offsetHeight - 2}px`;
+        if (e.clientY - offsetY + currentDrag.offsetHeight > window.innerHeight - 2 - 48) {
+            currentDrag.style.top = `${window.innerHeight - currentDrag.offsetHeight - 2 - 48}px`;
         }
     }
 
@@ -212,8 +422,8 @@ document.addEventListener('mousemove', (e) => {
         if (parseInt(currentResize.style.left) + parseInt(currentResize.style.width) > window.innerWidth - 6) {
             currentResize.style.width = `${window.innerWidth - parseInt(currentResize.style.left) - 6}px`
         }
-        if (parseInt(currentResize.style.top) + parseInt(currentResize.style.height) > window.innerHeight - 6) {
-            currentResize.style.height = `${window.innerHeight - parseInt(currentResize.style.top) - 6}px`
+        if (parseInt(currentResize.style.top) + parseInt(currentResize.style.height) > window.innerHeight - 6 - 48) {
+            currentResize.style.height = `${window.innerHeight - parseInt(currentResize.style.top) - 6 - 48}px`
         }
 
         document.body.style.userSelect = 'none';
@@ -340,6 +550,7 @@ window.addEventListener("message", (event) => {
                 document.getElementById("crt").style.display = "none"
             }
         }
+        
 
         localStorage.setItem(data["setting"], data["status"]);
     }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&display=swap');
 
 * {
     padding: 0;
@@ -24,7 +24,7 @@ a {
     cursor: url("assets/pointer.png") 6 1, pointer;
 }
 
-@keyframes pop-out {
+@keyframes popOut {
     0% {
         transform: scale(0.75);
         opacity: 0%;
@@ -50,6 +50,10 @@ a {
     animation: closeAnim 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards !important;
 }
 
+.pop-out-anim {
+    animation: popOut 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
 .appWindow {
     width: 600px;
     height: 500px;
@@ -64,14 +68,12 @@ a {
     border: #363636 1px solid;
     min-width: 100px;
     min-height: 100px;
-
-    animation: pop-out 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
 
 @media (max-width: 768px) {
     .appWindow {
         width: calc(100% - 4px) !important;
-        height: calc(100% - 4px) !important;
+        height: calc(100% - 4px - 48px) !important;
     }
 
     .bar {
@@ -93,6 +95,33 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: end;
+}
+
+.linkBtn {
+    pointer-events: all;
+    background-image: url("assets/link.png");
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    user-select: none !important;
+    border-right: #363636 1px solid;
+}
+
+.linkBtn:hover {
+    filter: brightness(50%);
+}
+
+.minimize {
+    pointer-events: all;
+    background-image: url("assets/minimize.png");
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    user-select: none !important;
+}
+
+.minimize:hover {
+    filter: brightness(50%);
 }
 
 .close {
@@ -137,7 +166,7 @@ a {
     grid-template-rows: repeat(auto-fill, 110px); /* Fixed row height */
     grid-auto-flow: column dense; /* Flow downwards first, then wrap into columns */
     gap: 10px; /* Spacing between items */
-    max-height: 90vh; /* Constrain grid height */
+    max-height: 97vh; /* Constrain grid height */
     user-select: none;
 }
 
@@ -179,6 +208,7 @@ a {
 }
 
 #watermark {
+    z-index: 1000;
     position: fixed;
     bottom: 16px;
     right: 24px;
@@ -243,4 +273,206 @@ a {
 
 .no-theme-warning {
     display: none;
+}
+
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    height: 48px;
+    width: 100%;
+    background-color: #131313;
+    border-top: #363636 1px solid;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.task {
+    width: 240px;
+    height: 100%;
+    border-bottom: #f29aff solid 4px;
+    box-sizing: border-box;
+    animation: taskOpen 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards !important;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-right: 2px;
+    background-color: #222222;
+    user-select: none;
+    transition: ease 0.1s;
+}
+
+.task:hover {
+    cursor: url("assets/pointer.png") 6 1, pointer;
+    background-color: #333333;
+}
+
+.taskHidden {
+    background-color: #131313 !important;
+    border-bottom: #a9a9a9 solid 4px !important;
+}
+
+.taskHidden:hover {
+    background-color: #222222 !important;
+}
+
+.task-close-anim {
+    animation: taskClose 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards !important;
+}
+
+@keyframes taskClose {
+    0% {
+        width: 240px;
+    }
+    100% {
+        width: 0px;
+    }
+}
+
+@keyframes taskOpen {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 240px;
+    }
+}
+
+.taskIcon {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    flex: 0 0 auto;
+}
+
+.taskTitle {
+    font-size: 14px;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    pointer-events: none;
+}
+
+.window-hide-anim {
+    animation: windowHide 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards !important;
+}
+
+.window-show-anim {
+    animation: windowShow 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards !important;
+}
+
+.window-focus-anim {
+    animation: windowFocus 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards !important;
+}
+
+@keyframes windowShow {
+    0% {
+        transform: translateY(25vh);
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes windowHide {
+    0% {
+        transform: translateY(0px);
+        opacity: 100%;
+    }
+    100% {
+        transform: translateY(25vh);
+        opacity: 0%;
+    }
+}
+
+@keyframes windowFocus {
+    0% {
+        transform: scale(100%);
+    }
+    50% {
+        transform: scale(105%);
+    }
+    100% {
+        transform: scale(100%);
+    }
+}
+
+.notifBox {
+    position: fixed;
+    width: 400px;
+    bottom: 64px;
+    right: 16px;
+    background-color: #1B1B1B;
+    border: #af68ba 1px solid;
+    animation: slideIn 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards !important;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(500px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.notifClose {
+    pointer-events: all;
+    background-image: url("assets/close.png");
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    user-select: none !important;
+    filter: brightness(100%);
+}
+
+.notifClose:hover {
+    filter: brightness(50%);
+}
+
+.notifBoxTitleArea {
+    height: 32px;
+    width: 100%;
+    background-color: #131313;
+    user-select: none !important;
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.notifTitle {
+    margin-top: 6px;
+    margin-left: 6px;
+    font-weight: 600;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #00000063;
+    font-size: 14px;
+}
+
+.notifContent {
+    margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.slide-out-anim {
+    animation: slideOut 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards !important;
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(500px);
+    }
 }
