@@ -210,12 +210,13 @@ a {
 #watermark {
     z-index: 1000;
     position: fixed;
-    bottom: 16px;
+    top: 16px;
     right: 24px;
     opacity: 25%;
     text-align: right;
     user-select: none;
     pointer-events: none;
+    background-color: #000000;
 }
 
 .appTitle {

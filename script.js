@@ -1,5 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 
+const verTitle = "Azzierium Desktop ALPHA v0.5-25.11.2"
+
 let currentDrag = null;
 let currentResize = null;
 let offsetX = 0;
@@ -36,6 +38,34 @@ function getElementWithHighestZIndex(className) {
     return highestElement;
 }
 
+// Frame rate monitor
+const times = [];
+let fps = 0;
+let lastDisplayTime = 0;
+const DISPLAY_INTERVAL = 250;
+
+function refreshLoop() {
+    window.requestAnimationFrame(() => {
+        const now = performance.now();
+        
+        while (times.length > 0 && times[0] <= now - 1000) {
+            times.shift();
+        }
+        times.push(now);
+        fps = times.length;
+        
+        if (now - lastDisplayTime >= DISPLAY_INTERVAL) {
+            document.getElementById("watermark").innerHTML = verTitle + "<br>FPS: " + fps;
+            lastDisplayTime = now;
+        }
+        
+        refreshLoop();
+    });
+}
+
+refreshLoop();
+
+// z-index fuckery
 function orderNotifs() {
     const notifs = document.getElementsByClassName("notifBox");
     for (let i = 0; i < notifs.length; i++) {
