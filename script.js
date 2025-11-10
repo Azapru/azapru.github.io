@@ -73,6 +73,13 @@ function orderNotifs() {
     }
 }
 
+function layerElements() {
+    orderNotifs()
+    document.getElementById("watermark").style.zIndex = zIndexCounter++;
+    document.getElementById("crt").style.zIndex = zIndexCounter++;
+    document.getElementById("bloom").style.zIndex = zIndexCounter++;
+}
+
 function sendNotification(title, content, height, timeout) {
     // Move past notifications up
     const notifs = document.getElementsByClassName("notifBox");
@@ -120,10 +127,7 @@ function sendNotification(title, content, height, timeout) {
         })
     }, timeout);
 
-    orderNotifs()
-    document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
-    document.getElementById("crt").style.zIndex = zIndexCounter++;
-    document.getElementById("bloom").style.zIndex = zIndexCounter++;
+    layerElements()
 }
 
 // Function for creating windows for apps
@@ -143,10 +147,7 @@ function createWindow(app) {
             const appWindow = document.createElement('div');
             appWindow.className = "appWindow";
             appWindow.style.zIndex = zIndexCounter++; // Make sure its on top
-            orderNotifs()
-            document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
-            document.getElementById("crt").style.zIndex = zIndexCounter++;
-            document.getElementById("bloom").style.zIndex = zIndexCounter++;
+            layerElements()
             // Set initial window position
             if (center == true) {
                 appWindow.style.left = `${window.innerWidth/2 - width/2}px`;
@@ -247,10 +248,7 @@ function createWindow(app) {
                 const iframeDoc = appArea.contentWindow.document;
                 iframeDoc.addEventListener("mousedown", function () {
                     appArea.parentElement.style.zIndex = zIndexCounter++;
-                    orderNotifs()
-                    document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
-                    document.getElementById("crt").style.zIndex = zIndexCounter++;
-                    document.getElementById("bloom").style.zIndex = zIndexCounter++;
+                    layerElements()
                 });
             };
 
@@ -318,11 +316,7 @@ function createWindow(app) {
                     }
                 } else {
                     appWindow.style.zIndex = zIndexCounter++;
-                    orderNotifs()
-                    document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
-                    document.getElementById("crt").style.zIndex = zIndexCounter++;
-                    document.getElementById("bloom").style.zIndex = zIndexCounter++;
-                    console.log("Top Window")
+                    layerElements()
 
                     if (appWindow.style.display == "none") {
                         task.classList.remove("taskHidden");
@@ -369,10 +363,7 @@ document.addEventListener('mousedown', (e) => {
         currentDrag = e.target;
 
         currentDrag.style.zIndex = zIndexCounter++;
-        orderNotifs()
-        document.getElementById("watermark").style.zIndex = zIndexCounter++; // Make sure the watermark always stays on top
-        document.getElementById("crt").style.zIndex = zIndexCounter++;
-        document.getElementById("bloom").style.zIndex = zIndexCounter++;
+        layerElements()
 
         offsetX = e.clientX - currentDrag.offsetLeft;
         offsetY = e.clientY - currentDrag.offsetTop;
@@ -387,10 +378,7 @@ document.addEventListener('mousedown', (e) => {
         currentResize = e.target.parentElement;
 
         currentResize.style.zIndex = zIndexCounter++;
-        orderNotifs()
-        document.getElementById("watermark").style.zIndex = zIndexCounter++;
-        document.getElementById("crt").style.zIndex = zIndexCounter++;
-        document.getElementById("bloom").style.zIndex = zIndexCounter++;
+        layerElements()
 
         // This simple math got me dizzy idk why it took me so long
         offsetX = e.clientX - currentResize.offsetWidth - currentResize.offsetLeft + 4;
