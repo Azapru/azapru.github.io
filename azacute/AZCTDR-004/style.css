@@ -37,7 +37,7 @@ body::before {
     background-size: 100% auto;
     background-position: center 0%;
     z-index: -1;
-    filter: brightness(0.5) contrast(1.15);
+    filter: brightness(0.45) contrast(1.15);
 }
 
 @supports (animation-timeline: scroll(root block)) {
