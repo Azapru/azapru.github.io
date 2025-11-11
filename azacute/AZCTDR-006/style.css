@@ -17,7 +17,7 @@ a:hover {
 
 body {
     min-height: 100vh;
-    background-image: url("cover.jpg");
+    background-image: url("bg.jpg");
     background-repeat: no-repeat;
     background-size: 100% auto; /* Fit horizontally */
     background-position: center 0%;
