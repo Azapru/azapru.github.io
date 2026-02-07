@@ -1,0 +1,68 @@
+.app-frame {
+    padding: 16px;
+    height: 100%;
+}
+
+.split-hor {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .split-hor {
+        flex-direction: column !important;
+    }
+}
+
+.split-frame {
+    flex: 1;
+    overflow: hidden;
+    padding: 8px;
+    align-items: center;
+}
+
+.illus-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.illus-info > img {
+    width: 100%;
+}
+
+.illus-info > h2 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    color: #fae7ff;
+}
+
+.illus-info > h3 {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ecb5f2;
+}
+
+.warning {
+    color: #7a7a7a;
+    font-size: 14px;
+}
+
+.accent-1 {
+    color: #fae7ff;
+}
+
+.status {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+.red {
+    color: #f64868
+}
+
+.green {
+    color: #42df7e
+}

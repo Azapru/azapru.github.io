@@ -276,6 +276,16 @@ a {
     display: none;
 }
 
+#durin {
+    position: fixed;
+    width: 200px;
+    z-index: 1;
+    bottom: 4px;
+    right: 0px;
+    user-select: none;
+    pointer-events: none;
+}
+
 #taskbar {
     position: fixed;
     bottom: 0;

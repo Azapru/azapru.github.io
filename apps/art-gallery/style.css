@@ -1,0 +1,146 @@
+.image {
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+    width: calc(20% - 2px);
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    overflow: hidden;
+    margin: 1px;
+}
+
+.image > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+
+@media (max-width: 2100px) {
+    .image {
+        width: calc(20% - 2px);
+        height: 400px;
+    }
+}
+
+@media (max-width: 1800px) {
+    .image {
+        width: calc(20% - 2px);
+        height: 350px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .image {
+        width: calc(20% - 2px); /* 5 columns */
+        height: 300px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .image {
+        width: calc(25% - 2px); /* 4 columns */
+        height: 275px;
+    }
+}
+
+@media (max-width: 800px) {
+    .image {
+        width: calc(33.33% - 2px); /* 3 columns */
+        height: 250px;
+    }
+}
+
+@media (max-width: 500px) {
+    .image {
+        width: calc(50% - 2px); /* 2 columns */
+        height: 200px;
+    }
+}
+
+.image:hover {
+    cursor: pointer;
+}
+
+.image:hover > img {
+    width: 95%;
+    height: 95%;
+}
+
+.image:active > img {
+    width: 90%;
+    height: 90%;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000aa;
+}
+
+#close-button-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 16px;
+    margin-right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 72px;
+    height: 72px;
+}
+
+#close-button {
+    width: 64px;
+    height: 64px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+
+#close-button:hover {
+    width: 72px;
+    height: 72px;
+}
+
+#close-button:active {
+    width: 58px;
+    height: 58px;
+}
+
+.char-name {
+    margin-left: 12px;
+}
+
+#overlay-image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#overlay-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+
+#credits {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+    color: #fff;
+    background-color: #000000aa;
+    padding: 4px;
+}

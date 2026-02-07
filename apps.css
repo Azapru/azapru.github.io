@@ -170,3 +170,31 @@ hr {
     margin-top: 12px;
     margin-bottom: 12px;
 }
+
+.section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.section > hr {
+    flex-grow: 1;
+    height: 0px;
+}
+
+.section > span {
+    font-size: 24px;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+::selection {
+    background-color: #b043c1;
+    color: #ffffff;
+}

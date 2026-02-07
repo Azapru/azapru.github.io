@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 
-const verTitle = "Azzierium Desktop ALPHA v0.5-25.11.2"
+const verTitle = "Azzierium Desktop ALPHA v0.6-26.2.7"
 
 let currentDrag = null;
 let currentResize = null;
