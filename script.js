@@ -511,6 +511,9 @@ if (localStorage.getItem("welcome") == null) {
 if (localStorage.getItem("theme") == null) {
     localStorage.setItem("theme", "night-storm")
 }
+if (localStorage.getItem("wallpaper") == null) {
+    localStorage.setItem("wallpaper", "night_storm_background.jpg")
+}
 
 // Load settings
 if (localStorage.getItem("bloom") == "on") {
@@ -526,6 +529,8 @@ if (localStorage.getItem("crt") == "on") {
 } else {
     document.getElementById("crt").style.display = "none"
 }
+
+document.getElementById("body").style.backgroundImage = "url(\"wallpapers/" + localStorage.getItem("wallpaper") + "\")"
 
 if (urlParams.has("app")) {
     let startup_app = urlParams.get("app")
@@ -550,6 +555,10 @@ window.addEventListener("message", (event) => {
         location.reload()
     }
 
+    if (data["type"] == "refresh_wallpaper") {
+        document.getElementById("body").style.backgroundImage = "url(\"wallpapers/" + localStorage.getItem("wallpaper") + "\")"
+    }
+
     if (data["type"] == "change_setting") {
         if (data["setting"] == "bloom") {
             if (data["status"] == "on") {
@@ -568,7 +577,6 @@ window.addEventListener("message", (event) => {
                 document.getElementById("crt").style.display = "none"
             }
         }
-        
 
         localStorage.setItem(data["setting"], data["status"]);
     }

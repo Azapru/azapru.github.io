@@ -19,7 +19,7 @@ if (localStorage.getItem("welcome") == "on") {
     document.getElementById("checkbox-welcome").checked = false
 }
 
-document.getElementById("select-theme").value = localStorage.getItem("theme")
+//document.getElementById("select-theme").value = localStorage.getItem("theme")
 
 // Set
 function bloomChanged() {
@@ -54,3 +54,36 @@ function themeChanged() {
     change_setting("theme", theme)
     refresh()
 }
+
+// Wallpapers
+
+const wallpapersRoll = document.getElementById("wallpapers-roll")
+
+const wallpapers = [
+    "night_storm_background.jpg",
+    "197924243923533824.jpg",
+    "reminiscent_dystopia.jpg"
+]
+
+wallpapers.forEach(imgName => {
+    const img = document.createElement("img")
+    img.src = `../../wallpapers/${imgName}`
+    img.classList.add("wallpaper-image")
+    img.classList.add("pointer")
+    img.onclick = () => {
+        change_setting("wallpaper", imgName)
+        refresh_wallpaper()
+
+        document.querySelectorAll(".wallpaper-image").forEach((wallpaperItem, index) => {
+            wallpaperItem.classList.remove("wallpaper-selected")
+        })
+
+        img.classList.add("wallpaper-selected")
+    }
+
+    if (imgName == localStorage.getItem("wallpaper")) {
+        img.classList.add("wallpaper-selected")
+    }
+
+    wallpapersRoll.appendChild(img)
+})

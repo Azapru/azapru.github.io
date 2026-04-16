@@ -6,3 +6,22 @@ h1, h2 {
     margin-bottom: 8px;
     margin-top: 20px;
 }
+
+#wallpapers-roll {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    padding-right: 25px;
+    padding-bottom: 10px;
+}
+
+.wallpaper-image {
+    border: #7b7b7b 2px solid;
+    height: 180px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.wallpaper-selected {
+    border: #f5a0da 2px solid !important;
+}
