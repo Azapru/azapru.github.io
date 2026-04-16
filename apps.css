@@ -69,11 +69,16 @@ a {
     width: 20px;
     background-color: #eee;
     cursor: url("assets/pointer.png") 6 1, pointer;
+    transition: transform 0.1s ease;
 }
 
 /* On mouse-over, add a grey background color */
 .checkbox-container:hover input ~ .checkmark {
     background-color: #ccc;
+}
+
+.checkbox-container:active input ~ .checkmark {
+    transform: scale(0.9);
 }
 
 /* When the checkbox is checked, add a blue background */

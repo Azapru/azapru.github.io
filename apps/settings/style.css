@@ -11,15 +11,24 @@ h1, h2 {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+    padding: 10px;
     padding-right: 25px;
-    padding-bottom: 10px;
 }
 
 .wallpaper-image {
     border: #7b7b7b 2px solid;
-    height: 180px;
+    height: 160px;
     width: auto;
     margin-right: 10px;
+    transition: transform 0.1s ease;
+}
+
+.wallpaper-image:hover {
+    transform: scale(1.02)
+}
+
+.wallpaper-image:active {
+    transform: scale(0.98)
 }
 
 .wallpaper-selected {
