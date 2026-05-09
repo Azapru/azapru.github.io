@@ -207,3 +207,24 @@ hr {
     background-color: #b043c1;
     color: #ffffff;
 }
+
+.btn {
+    background-color: #2e2e2e;
+    border: 1px solid #6f6f6f;
+    padding: 8px;
+    font-size: 14px;
+    cursor: url("assets/pointer.png") 6 1, pointer;
+    transition: transform 0.1s ease;
+    margin-bottom: 4px;
+}
+
+.btn:hover {
+    border: 1px solid #b043c1;
+    background-color: #404040;
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}

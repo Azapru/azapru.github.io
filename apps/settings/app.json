@@ -5,5 +5,6 @@
     "width": 700,
     "height": 550,
     "allow_resizing": true,
+    "allow_maximize": true,
     "center": true
 }

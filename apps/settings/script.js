@@ -13,6 +13,12 @@ if (localStorage.getItem("crt") == "on") {
     document.getElementById("checkbox-crt").checked = false
 }
 
+if (localStorage.getItem("mini_durin") == "on") {
+    document.getElementById("checkbox-durin").checked = true
+} else {
+    document.getElementById("checkbox-durin").checked = false
+}
+
 if (localStorage.getItem("welcome") == "on") {
     document.getElementById("checkbox-welcome").checked = true
 } else {
@@ -40,6 +46,15 @@ function crtChanged() {
     }
 }
 
+function miniDurinChanged() {
+    let mini_durin = document.getElementById("checkbox-durin").checked
+    if (mini_durin) {
+        change_setting("mini_durin", "on")
+    } else {
+        change_setting("mini_durin", "off")
+    }
+}
+
 function welcomeChanged() {
     let welcome = document.getElementById("checkbox-welcome").checked
     if (welcome) {
@@ -62,7 +77,9 @@ const wallpapersRoll = document.getElementById("wallpapers-roll")
 const wallpapers = [
     "night_storm_background.jpg",
     "197924243923533824.jpg",
-    "reminiscent_dystopia.jpg"
+    "reminiscent_dystopia.jpg",
+    "fractured_reality.jpg",
+    "nature-6766923.jpg"
 ]
 
 wallpapers.forEach(imgName => {
@@ -87,3 +104,10 @@ wallpapers.forEach(imgName => {
 
     wallpapersRoll.appendChild(img)
 })
+
+// Debug
+
+function resetAllData() {
+    localStorage.clear()
+    refresh()
+}

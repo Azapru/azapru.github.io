@@ -124,6 +124,32 @@ a {
     filter: brightness(50%);
 }
 
+.maximize {
+    pointer-events: all;
+    background-image: url("assets/maximize.png");
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    user-select: none !important;
+}
+
+.maximize:hover {
+    filter: brightness(50%);
+}
+
+.windowed {
+    pointer-events: all;
+    background-image: url("assets/windowed.png");
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    user-select: none !important;
+}
+
+.windowed:hover {
+    filter: brightness(50%);
+}
+
 .close {
     pointer-events: all;
     background-image: url("assets/close.png");
@@ -166,8 +192,10 @@ a {
     grid-template-rows: repeat(auto-fill, 110px); /* Fixed row height */
     grid-auto-flow: column dense; /* Flow downwards first, then wrap into columns */
     gap: 10px; /* Spacing between items */
-    max-height: 97vh; /* Constrain grid height */
+    max-height: calc(100% - 60px); /* Constrain grid height */
     user-select: none;
+
+    /* border: white 1px solid; */
 }
 
 .icon {

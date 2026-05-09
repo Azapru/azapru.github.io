@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 
-const verTitle = "Azzierium Desktop ALPHA v0.6-26.2.7"
+const verTitle = "Azzierium Desktop ALPHA v0.7-26.5.9"
 
 let currentDrag = null;
 let currentResize = null;
@@ -75,6 +75,7 @@ function orderNotifs() {
 
 function layerElements() {
     orderNotifs()
+    document.getElementById("durin").style.zIndex = zIndexCounter++;
     document.getElementById("watermark").style.zIndex = zIndexCounter++;
     document.getElementById("crt").style.zIndex = zIndexCounter++;
     document.getElementById("bloom").style.zIndex = zIndexCounter++;
@@ -141,6 +142,7 @@ function createWindow(app) {
             width = data["width"];
             height = data["height"];
             allowResize = data["allow_resizing"];
+            allowMaximize = data["allow_maximize"];
             center = data["center"];
 
             // Create app window
@@ -218,6 +220,58 @@ function createWindow(app) {
             });
             minimize.oncontextmenu = minimize.oncontextmenu = function() {return false;} // Disable right click menu for the minimize button
             bar.appendChild(minimize);
+            
+            // Maximize button
+            if (!window.matchMedia("(max-width: 768px)").matches && allowMaximize) { // Don't create maximize buttons on mobile + check for allow_maximize
+                const maximize = document.createElement("div");
+                maximize.className = "maximize";
+                maximize.addEventListener("click", (e) => {
+                    appWindow.style.top = "0";
+                    appWindow.style.left = "0";
+                    appWindow.style.width = "calc(100% - 4px)";
+                    appWindow.style.height = "calc(100% - 52px)";
+
+                    windowed.style.display = "block";
+                    maximize.style.display = "none";
+                    resize.style.display = "none";
+                });
+                maximize.oncontextmenu = maximize.oncontextmenu = function() {return false;} // Disable right click menu
+                bar.appendChild(maximize);
+
+                // Windowed button
+                const windowed = document.createElement("div");
+                windowed.className = "windowed";
+                windowed.addEventListener("click", (e) => {
+                    if (center == true) {
+                        appWindow.style.left = `${window.innerWidth/2 - width/2}px`;
+                        appWindow.style.top = `${window.innerHeight/2 - height/2}px`;
+                    } else {
+                        let posX = x/100 * window.innerWidth
+                        let posY = y/100 * window.innerHeight
+
+                        if (posX > (window.innerWidth / 2)) {
+                            posX = posX - width
+                        }
+                        if (posY > (window.innerHeight / 2)) {
+                            posY = posY - height
+                        }
+
+                        appWindow.style.left = `${posX}px`;
+                        appWindow.style.top = `${posY}px`;
+                    }
+
+                    appWindow.style.width = `${width}px`
+                    appWindow.style.height = `${height}px`
+
+                    windowed.style.display = "none";
+                    maximize.style.display = "block";
+                    resize.style.display = "block";
+                });
+                windowed.oncontextmenu = windowed.oncontextmenu = function() {return false;} // Disable right click menu
+                bar.appendChild(windowed);
+
+                windowed.style.display = "none"; // Hide windowed button at first
+            }
 
             // Close button
             const close = document.createElement("div");
@@ -508,6 +562,9 @@ if (localStorage.getItem("crt") == null) {
 if (localStorage.getItem("welcome") == null) {
     localStorage.setItem("welcome", "on")
 }
+if (localStorage.getItem("mini_durin") == null) {
+    localStorage.setItem("mini_durin", "off")
+}
 if (localStorage.getItem("theme") == null) {
     localStorage.setItem("theme", "night-storm")
 }
@@ -528,6 +585,12 @@ if (localStorage.getItem("crt") == "on") {
     document.getElementById("crt").style.display = "block"
 } else {
     document.getElementById("crt").style.display = "none"
+}
+
+if (localStorage.getItem("mini_durin") == "on") {
+    document.getElementById("durin").style.display = "block"
+} else {
+    document.getElementById("durin").style.display = "none"
 }
 
 document.getElementById("body").style.backgroundImage = "url(\"wallpapers/" + localStorage.getItem("wallpaper") + "\")"
@@ -575,6 +638,14 @@ window.addEventListener("message", (event) => {
                 document.getElementById("crt").style.display = "block"
             } else if (data["status"] == "off") {
                 document.getElementById("crt").style.display = "none"
+            }
+        }
+
+        if (data["setting"] == "mini_durin") {
+            if (data["status"] == "on") {
+                document.getElementById("durin").style.display = "block"
+            } else if (data["status"] == "off") {
+                document.getElementById("durin").style.display = "none"
             }
         }
 

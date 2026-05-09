@@ -9,6 +9,7 @@
 <body>
     <h2>Wallpaper</h2>
     <div id="wallpapers-roll"></div>
+
     <h2>Visual effects</h2>
     <label class="checkbox-container">
         Bloom
@@ -18,6 +19,13 @@
     <label class="checkbox-container">
         CRT
         <input type="checkbox" id="checkbox-crt" onchange="crtChanged()">
+        <span class="checkmark"></span>
+    </label>
+
+    <h2>Cosmetics</h2>
+    <label class="checkbox-container">
+        Mini Durin
+        <input type="checkbox" id="checkbox-durin" onchange="miniDurinChanged()">
         <span class="checkmark"></span>
     </label>
 
@@ -32,8 +40,9 @@
     <p style="font-size: 12px;">Theme inspiration: Clawrez</p>
     <p style="font-size: 12px;">CRT effect "borrowed" from: prycwrn</p>
 
-    <h2>Dev Info</h2>
-    <p style="font-size: 12px;">Settings update reset value: <span id="reset_value"></span></p>
+    <h2>Debug</h2>
+    <p style="font-size: 12px;">Settings update reset value: <span id="reset_value"></span></p> <br>
+    <button class="btn" id="reset-data-btn" onclick="resetAllData()">Reset all data</button>
 
     <br><br>
 
