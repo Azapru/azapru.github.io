@@ -226,6 +226,13 @@ function createWindow(app) {
                 const maximize = document.createElement("div");
                 maximize.className = "maximize";
                 maximize.addEventListener("click", (e) => {
+                    // Save size
+                    appWindow.varPreviousHeight = appWindow.style.height.slice(0, -2);
+                    appWindow.varPreviousWidth = appWindow.style.width.slice(0, -2);
+                    appWindow.varPreviousX = appWindow.style.left.slice(0, -2);
+                    appWindow.varPreviousY = appWindow.style.top.slice(0, -2);
+
+                    // Set size
                     appWindow.style.top = "0";
                     appWindow.style.left = "0";
                     appWindow.style.width = "calc(100% - 4px)";
@@ -242,26 +249,10 @@ function createWindow(app) {
                 const windowed = document.createElement("div");
                 windowed.className = "windowed";
                 windowed.addEventListener("click", (e) => {
-                    if (center == true) {
-                        appWindow.style.left = `${window.innerWidth/2 - width/2}px`;
-                        appWindow.style.top = `${window.innerHeight/2 - height/2}px`;
-                    } else {
-                        let posX = x/100 * window.innerWidth
-                        let posY = y/100 * window.innerHeight
-
-                        if (posX > (window.innerWidth / 2)) {
-                            posX = posX - width
-                        }
-                        if (posY > (window.innerHeight / 2)) {
-                            posY = posY - height
-                        }
-
-                        appWindow.style.left = `${posX}px`;
-                        appWindow.style.top = `${posY}px`;
-                    }
-
-                    appWindow.style.width = `${width}px`
-                    appWindow.style.height = `${height}px`
+                    appWindow.style.width = `${appWindow.varPreviousWidth}px`
+                    appWindow.style.height = `${appWindow.varPreviousHeight}px`
+                    appWindow.style.left = `${appWindow.varPreviousX}px`
+                    appWindow.style.top = `${appWindow.varPreviousY}px`
 
                     windowed.style.display = "none";
                     maximize.style.display = "block";
