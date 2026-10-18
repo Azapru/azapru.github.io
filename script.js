@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 
-const verTitle = "Azzierium Desktop ALPHA v0.7-26.5.9"
+const verTitle = "Azzierium Desktop ALPHA v0.8-26.10.13"
 
 let currentDrag = null;
 let currentResize = null;
@@ -132,7 +132,7 @@ function sendNotification(title, content, height, timeout) {
 }
 
 // Function for creating windows for apps
-function createWindow(app) {
+function createWindow(app, isModal) {
     fetch(`apps/${app}/app.json`)
         .then(response => response.json())
         .then(data => {
@@ -150,6 +150,12 @@ function createWindow(app) {
             appWindow.className = "appWindow";
             appWindow.style.zIndex = zIndexCounter++; // Make sure its on top
             layerElements()
+            if (isModal == true) {
+                document.getElementById("modal-dim").style.display = "block";
+                document.getElementById("modal-dim").style.zIndex = zIndexCounter++;
+                appWindow.style.zIndex = zIndexCounter++;
+                layerElements()
+            }
             // Set initial window position
             if (center == true) {
                 appWindow.style.left = `${window.innerWidth/2 - width/2}px`;
@@ -528,14 +534,20 @@ document.getElementById("drag").addEventListener("animationend", () => {
 })
 
 // Update reset
-let reset_value = 8
+let reset_value = 28
 
 if (localStorage.getItem("reset_value") != null) {
     if (parseInt(localStorage.getItem("reset_value")) < reset_value) {
         localStorage.setItem("bloom", "on")
         localStorage.setItem("crt", "on")
         localStorage.setItem("welcome", "on")
+        localStorage.setItem("mini_durin", "off")
         localStorage.setItem("theme", "night-storm")
+        localStorage.setItem("wallpaper", "bg_main2.jpg")
+
+        if (reset_value != 0) {
+            sendNotification("Notice", "Your settings and preferences have been reset due to an update since the last time you have opened Azzierium Desktop.", 120, 10000)
+        }
 
         localStorage.setItem("reset_value", reset_value);
     }
@@ -560,7 +572,7 @@ if (localStorage.getItem("theme") == null) {
     localStorage.setItem("theme", "night-storm")
 }
 if (localStorage.getItem("wallpaper") == null) {
-    localStorage.setItem("wallpaper", "night_storm_background.jpg")
+    localStorage.setItem("wallpaper", "bg_main2.jpg")
 }
 
 // Load settings
@@ -641,6 +653,10 @@ window.addEventListener("message", (event) => {
         }
 
         localStorage.setItem(data["setting"], data["status"]);
+    }
+
+    if (data["type"] == "send_notification") {
+        sendNotification(data["title"], data["content"], parseInt(data["height"]), parseInt(data["timeout"]))
     }
 });
 

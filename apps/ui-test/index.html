@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../apps.css" id="theme">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="application-frame">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <br>
+        <p>Paragraph - Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+        <br>
+        <button class="btn">Button</button>
+        <button class="btn">Much Longer Button</button>
+        <br><br>
+        <button class="btn" onclick="send_notification('Notification', 'Test message content', '100', '2000')">Click me</button>
+        <br><br>
+        <label class="checkbox-container">
+            Checkbox 1
+            <input type="checkbox" onchange="">
+            <span class="checkmark"></span>
+        </label>
+        <label class="checkbox-container">
+            Checkbox 2
+            <input type="checkbox" onchange="" checked="true">
+            <span class="checkmark"></span>
+        </label>
+        <p>Text input:</p>
+        <input type="text" class="input-text">
+    </div>
+
+    <script src="../azde-api/script.js"></script>
+</body>
+</html>

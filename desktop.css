@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&display=swap');
 
+:root {
+    --primary: #9456ff;
+    --primary-light: #bd96ff;
+    --primary-darker: #6a38c0;
+    --primary-darker-transparent: #6a38c077;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -83,7 +90,11 @@ a {
     .close {
         width: 64px !important;
         height: 64px !important;
-    }    
+    }
+
+    .appArea {
+        height: calc(100% - 64px) !important;
+    }
 }
 
 .bar {
@@ -269,13 +280,13 @@ a {
 }
 
 .link {
-    color: #f29aff;
+    color: var(--primary-light);
     cursor: url("assets/pointer.png") 6 1, pointer;
 }
 
 .drag {
-    background-color: #cb65db78;
-    border: #f29aff solid 2px;
+    background-color: var(--primary-darker-transparent);
+    border: var(--primary-light) solid 2px;
     width: 0px;
     height: 0px;
     display: none;
@@ -329,7 +340,7 @@ a {
 .task {
     width: 240px;
     height: 100%;
-    border-bottom: #f29aff solid 4px;
+    border-bottom: var(--primary-light) solid 4px;
     box-sizing: border-box;
     animation: taskOpen 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards !important;
     overflow: hidden;
@@ -445,7 +456,7 @@ a {
     bottom: 64px;
     right: 16px;
     background-color: #1B1B1B;
-    border: #af68ba 1px solid;
+    border: var(--primary) 1px solid;
     animation: slideIn 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards !important;
     display: flex;
     flex-direction: column;
@@ -514,4 +525,17 @@ a {
     100% {
         transform: translateX(500px);
     }
+}
+
+#modal-dim {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 0.7;
 }

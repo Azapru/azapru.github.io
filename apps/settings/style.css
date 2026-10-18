@@ -32,5 +32,5 @@ h1, h2 {
 }
 
 .wallpaper-selected {
-    border: #f5a0da 2px solid !important;
+    border: var(--primary-light) 2px solid !important;
 }

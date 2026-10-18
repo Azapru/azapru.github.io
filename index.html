@@ -11,11 +11,15 @@
 <body id="body">
     <h3 id="watermark">Azzierium Desktop</h3>
 
-    <h1 class="no-theme-warning">
-        WARNING: If you are seeing this, the current theme has most likely broke!<br>
-        <span onclick="localStorage.clear(); location.reload();" style="color: #ea60ff; cursor: pointer;">Click here</span> to clear all settings.
-        <div class="space" style="height: 100vh;"></div>
-    </h1>
+    <div id="modal-dim"></div>
+
+    <!--
+        <h1 class="no-theme-warning">
+            WARNING: If you are seeing this, the current theme has most likely broke!<br>
+            <span onclick="localStorage.clear(); location.reload();" style="color: #ea60ff; cursor: pointer;">Click here</span> to clear all settings.
+            <div class="space" style="height: 100vh;"></div>
+        </h1>
+    -->
 
     <div id="bloom"></div>
     <div id="crt"></div>
@@ -47,6 +51,10 @@
                 <p>Commissions Info</p>
             </div>
         -->
+        <div class="icon" onclick="createWindow('ui-test')">
+            <img src="assets/missing.png">
+            <p>UI Test</p>
+        </div>
 
         <div class="drag" id="drag"></div>
     </div>

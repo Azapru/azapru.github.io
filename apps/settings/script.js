@@ -75,6 +75,8 @@ function themeChanged() {
 const wallpapersRoll = document.getElementById("wallpapers-roll")
 
 const wallpapers = [
+    "bg_main2.jpg",
+    "bg_main1.jpg",
     "night_storm_background.jpg",
     "197924243923533824.jpg",
     "reminiscent_dystopia.jpg",

@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Gothic&display=swap');
 
+:root {
+    --primary: #9456ff;
+    --primary-light: #bd96ff;
+    --primary-darker: #6a38c0;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -23,7 +29,7 @@ a {
 }
 
 .link {
-    color: #f29aff;
+    color: var(--primary-light);
     cursor: url("assets/pointer.png") 6 1, pointer;
 }
 
@@ -83,7 +89,7 @@ a {
 
 /* When the checkbox is checked, add a blue background */
 .checkbox-container input:checked ~ .checkmark {
-    background-color: #ea60ff;
+    background-color: var(--primary);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -145,7 +151,7 @@ a {
 
 /* Focus (when “open”) to match your purple checked state */
 .select-container:focus-within select {
-	border-color: #ea60ff;
+	border-color: var(--primary);
 }
 
 /* Draw custom arrow with a CSS triangle */
@@ -165,7 +171,7 @@ a {
 
 /* Change arrow color when focused/opened */
 .select-container:focus-within::after {
-	border-top-color: #ea60ff;
+	border-top-color: var(--primary);
 }
 
 /* Styles all the options in the popup list */
@@ -204,7 +210,7 @@ hr {
 }
 
 ::selection {
-    background-color: #b043c1;
+    background-color: var(--primary-darker);
     color: #ffffff;
 }
 
@@ -219,7 +225,7 @@ hr {
 }
 
 .btn:hover {
-    border: 1px solid #b043c1;
+    border: 1px solid var(--primary-light);
     background-color: #404040;
     color: white;
     transform: scale(1.05);
@@ -227,4 +233,18 @@ hr {
 
 .btn:active {
     transform: scale(0.95);
+}
+
+.input-text {
+    background-color: #333;
+    color: #eee;
+    cursor: text;
+    border: #333 solid 2px;
+    padding: 2px;
+}
+
+.input-text:focus {
+    background-color: #333;
+    border: var(--primary-light) solid 2px;
+    outline: none;
 }

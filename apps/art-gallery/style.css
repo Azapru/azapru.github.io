@@ -61,8 +61,9 @@
 }
 
 .image:hover {
-    cursor: pointer;
+    cursor: url("../../assets/pointer.png") 6 1, pointer;
 }
+
 
 .image:hover > img {
     width: 95%;
@@ -99,7 +100,8 @@
     width: 64px;
     height: 64px;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
-    scale: 2;
+    opacity: 0.7;
+    scale: 0.75;
 }
 
 #close-button:hover {
